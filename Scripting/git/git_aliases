@@ -1,0 +1,13 @@
+############################# Git posting #######################
+alias pgit='commit_and_push'
+alias crgit='Git_Create_Project_by_Template'
+#cpp "This is my commit message" main
+
+############################# Git Browsing #######################
+alias cdgit='cd $HOME/wd'
+alias cdsrc='cd $HOME/wd/ds/ws7_Q'
+alias cdapp='cd $HOME/wd/ds/ws7_Q/bin/release'
+alias run='$HOME/wd/ds/ws7_Q/bin/release/Q.out'
+
+############################# Debugging #######################
+alias copycore='copy_latest_core'

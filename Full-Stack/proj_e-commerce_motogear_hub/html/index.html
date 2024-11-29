@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoGear Hub Store</title>
+
+    <!-- imported google font for global design -->
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy&display=swap" rel="stylesheet">
+    <!-- preload the main css for better performance -->
+    <link rel="preload" href="../css/style.css" as="style">
+    <!-- icons for social media n footer -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!--main design sheet for index -->
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+    <div class="layout_cont">
+
+        <!-- #1st Element in grid- Header -->
+        <Header class="header_cont">
+            <!-- #1.a. Logo -->
+            <a href="../html/index.html">
+                <img class="logo_img" src="../media/images/logo/logo_txt_opac.png" alt="logo text">
+            </a>
+            <!-- #1.b. Search Bar -->
+            <form action="/search" class="search_wrap" method="get">
+                <input type="text" class="search_bar" placeholder="Search">
+                <img class="search_btn" src="../media/svgs/search.svg" alt="search">
+            </form>
+            <!-- #1.c. Nav Buttons -->
+            <nav class="top_nav_wrap">
+                <a href="#shop_section">
+                    <img class="top_nav_item" src="../media/svgs/shop.svg" alt="shop">
+                </a>
+                <a href="../html/login.html">
+                    <img class="top_nav_item" src="../media/svgs/user.svg" alt="user">
+                </a>
+                <a href="../html/events.html">
+                    <img class="top_nav_item" src="../media/svgs/events.svg" alt="user">
+                </a>
+            </nav>
+        </Header>
+
+        <!-- #2nd Element in grid- Video -->
+        <section class="video_cont">
+            <!-- #2.a. video -->
+            <video loop muted autoplay playsinline poster="../media/videos/Teardown.mp4" class="hero_video">
+                <source src="../media/videos/Teardown.mp4" type="video/mp4">
+                <source src="../media/videos/Teardown.webm" type="video/webm">
+                Video is not supported in this browser.
+            </video>
+            <!-- #2.b. text -->
+            <div class="hero_text">
+                <h1>MOTOGEAR HUB</h1>
+                <p>Your first choice for bike parts!</p>
+            </div>
+        </section>
+
+        <!-- #3th Element in grid- brands banner -->
+        <section class="brand-banner">
+            <div class="slides_wrap">
+                <div class="slide_item">
+                    <img src="../media/images/brands/brand1.svg" alt="Brand 1">
+                </div>
+                <div class="slide_item">
+                    <img src="../media/images/brands/brand2.svg" alt="Brand 2">
+                </div>
+                <div class="slide_item">
+                    <img src="../media/images/brands/brand3.svg" alt="Brand 3">
+                </div>
+                <div class="slide_item">
+                    <img src="../media/images/brands/brand4.svg" alt="Brand 4">
+                </div>
+                <div class="slide_item">
+                    <img src="../media/images/brands/brand5.svg" alt="Brand 5">
+                </div>
+                <div class="slide_item">
+                    <img src="../media/images/brands/brand6.svg" alt="Brand 6">
+                </div>
+            </div>
+        </section>
+
+        <!-- #4th Element in grid- Shop Menu -->
+        <section class="quick_shop_cont" id="shop_section">
+            <!-- #4.a. btn_globals -->
+            <div class="quick_shop_links_wrap">
+                <a href="../html/gallery.html" class="btn_global">NEW ITEMS</a>
+                <a href="../html/gallery.html" class="btn_global">SALE!</a>
+                <a href="../html/gallery.html" class="btn_global">SHOP ALL</a>
+            </div>
+
+            <!-- #4.b. shop-by component -->
+            <div class="shop_by_wrap">
+                <!-- 4.b.1 Radio buttons for OEM and Spare parts selection -->
+                <div class="radio_global">
+                    <label class="radio_lbl_global">
+                        <input class="radio_input" type="radio" name="part-type" id="oem" checked>
+                        <span class="radio_btn"></span>
+                        <span class="radio_txt">OEM Parts</span>
+                    </label>
+                    <label class="radio_lbl_global">
+                        <input class="radio_input" type="radio" name="part-type" id="spare">
+                        <span class="radio_btn"></span>
+                        <span class="radio_txt">Spare Parts</span>
+                    </label>
+                </div>
+
+                <!-- 4.b.2 Dropdown menus row -->
+                <div class="dropdowns-container">
+                    <select class="dropdown" id="type">
+                        <option value="">Select Type</option>
+                        <option value="street">Street Bike</option>
+                        <option value="dirt">Dirt Bike</option>
+                        <option value="utv">UTV/ATV</option>
+                    </select>
+                    <select class="dropdown" id="year">
+                        <option value="">Select Year</option>
+                        <option value="2020">2022</option>
+                        <option value="2021">2023</option>
+                        <option value="2022">2024</option>
+                    </select>
+                    <select class="dropdown" id="make">
+                        <option value="">Select Make</option>
+                        <option value="honda">Honda</option>
+                        <option value="yamaha">Yamaha</option>
+                        <option value="suzuki">Suzuki</option>
+                    </select>
+                    <select class="dropdown model-dropdown" id="model">
+                        <option value="">Select Model</option>
+                        <option value="model1">Model 1</option>
+                        <option value="model2">Model 2</option>
+                        <option value="model3">Model 3</option>
+                    </select>
+                    <a href="../html/gallery.html">
+                        <button class="btn_global">Go</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- #5th Element in grid- main -->
+        <section class="catagories_cont">
+
+            <!-- 5.a. Catagory Cards -->
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Air Cleaners.avif" alt="Air Cleaners">
+                <h3>Air Cleaners</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Audio & Speakers.avif" alt="Audio & Speakers">
+                <h3>Audio & Speakers</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Batteries & Electrical.avif" alt="Batteries & Electrical">
+                <h3>Batteries & Electrical</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Bike Protection.avif" alt="Bike Protection">
+                <h3>Bike Protection</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Body, Fairing & Fender.avif" alt="Body, Fairing & Fender">
+                <h3>Body, Fairing & Fender</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Brakes.avif" alt="Brakes">
+                <h3>Brakes</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Dash & Gauges.avif" alt="Dash & Gauges">
+                <h3>Dash & Gauges</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Drive & Transmission.avif" alt="Drive & Transmission">
+                <h3>Drive & Transmission</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Engine.avif" alt="Engine">
+                <h3>Engine</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Exhaust.avif" alt="Exhaust">
+                <h3>Exhaust</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Filters.avif" alt="Filters">
+                <h3>Filters</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Foot Controls.avif" alt="Foot Controls">
+                <h3>Foot Controls</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Fuel Management.avif" alt="Fuel Management">
+                <h3>Fuel Management</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Handlebars & Controls.avif" alt="Handlebars & Controls">
+                <h3>Handlebars & Controls</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Lighting.avif" alt="Lighting">
+                <h3>Lighting</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Mirrors & Accessories.avif" alt="Mirrors & Accessories">
+                <h3>Mirrors & Accessories</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Seats & Sissybars.avif" alt="Seats & Sissybars">
+                <h3>Seats & Sissybars</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Suspension & Frame.avif" alt="Suspension & Frame">
+                <h3>Suspension & Frame</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Wheel & Axle.avif" alt="Wheel & Axle">
+                <h3>Wheel & Axle</h3>
+            </a>
+            <a href="../html/gallery.html" class="catagoory_card">
+                <img src="../media/images/catagories/Windshields & Windscreens.avif" alt="Windshields & Windscreens">
+                <h3>Windshields & Windscreens</h3>
+            </a>
+        </section>
+
+        <!-- #6th Element in grid- about section -->
+        <section class="about_cont">
+            <!-- 6.a. About Section -->
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="../html/login.html">Riders Membership</a></li>
+                    <li><a href="#">Why Shop Us?</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Affiliate Program</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Discount Codes</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Common Tread Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <!-- 6.b. Customer Service Section -->
+            <div class="footer-section customer-service">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Shipping Policies</a></li>
+                    <li><a href="#">Price Match Policy</a></li>
+                    <li><a href="#">Gift Certificate Policy</a></li>
+                    <li><a href="#">Police / Military / Fire / EMS Discount</a></li>
+                    <li><a href="#">Recalls / Product Notices</a></li>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Bulk Orders</a></li>
+                    <li><a href="#">Discount Exclusions</a></li>
+                </ul>
+            </div>
+            <!-- 6.c. Contact Info Section -->
+            <div class="footer-section contact-info">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li>Phone: +1 (215) 334-5500</li>
+                    <li><a href="#">Start a Return</a></li>
+                    <li><a href="#">Leave Feedback</a></li>
+                </ul>
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- #7th Element in grid- about section -->
+        <footer class="footer_cont">
+            <!-- 7.a. Payments Secured and Credit Cards Section -->
+            <div class="secure_wrap">
+                <div class="payment-info">
+                </div>
+                <div class="credit-cards">
+                    <p>PAYMENTS SECURED by Braintree | Progressive | Comoto Holdings, LLC © 2024 All Rights Reserved</p>
+                    <img src="../media/images/credit_cards/american-express.svg" alt="American Express">
+                    <img src="../media/images/credit_cards/discover.svg" alt="Discover">
+                    <img src="../media/images/credit_cards/master-card.svg" alt="Mastercard">
+                    <img src="../media/images/credit_cards/pay_pal.svg" alt="PayPal">
+                    <img src="../media/images/credit_cards/visa.svg" alt="Visa">
+                </div>
+            </div>
+            <!-- 7.b. Legal Section -->
+            <div class="legal_wrap">
+                <p>MOTOGEAR HUB © 2024 All Rights Reserved</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a> | <a href="#">Accessibility
+                        Statement</a></p>
+            </div>
+        </footer>
+</body>
+
+
+</html>

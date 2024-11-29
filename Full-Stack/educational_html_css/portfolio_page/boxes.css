@@ -1,0 +1,81 @@
+        /* Basic styling for layout */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        span {
+
+            margin: 50px;
+            padding: 20px;
+            background-color: #5c27274b;
+            border-radius: 15px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #box1 {
+            background-color: #1f68d6;
+
+        }
+
+        #box2 {
+            background-color: #bb1771;
+
+        }
+
+        #box3 {
+            background-color: #178564;
+
+        }
+
+        h1 {
+            color: black;
+            ;
+            background-color: aqua;
+            text-align: start;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        #T1 {
+            background-color: #bb1771;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+
+        #T2 {
+            background-color: #3150da;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .blue-titles h2 {
+            /* hirarchy- h2 sons affected */
+            color: #1f68d6;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: #bb1771;
+            padding-right: 10px;
+            border-width: 10px;
+            border-color: #3150da;
+            border-style: groove;
+            display: inline;;
+
+            /* border has to have 3 properties */
+        }
+
+        .green
+        {
+            /* one of the squares uses 2 classes */
+            background-color: #178564;
+        }

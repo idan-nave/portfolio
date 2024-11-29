@@ -1,0 +1,54 @@
+* {
+    /* border: red solid 2px; */
+}
+
+body {
+    background-color: hsl(30, 54%, 90%);
+    margin: 0px;
+}
+
+.recipe-container {
+    background-color: white;
+    max-width: 80vw;
+    /* vw=% of parent */
+    
+
+    padding-left: 8%;
+
+    margin: auto;
+}
+
+.top_img {
+    width: 90%;
+    border-radius: 5%;
+    margin-top: 2.5%;
+}
+
+.Recipe-header{
+    color: hsl(0, 0%, 0%);
+}
+
+.prep_time_header{
+    color: hsl(300, 59%, 38%);
+}
+
+.Section_header{
+    color: hsl(14, 45%, 36%);
+}
+
+.prep_time_cont {
+    border: red solid 2px;
+
+}
+
+.Ingredients_cont{
+
+}
+
+.Instructions_cont{
+
+}
+
+.Nutrition_cont{
+
+}

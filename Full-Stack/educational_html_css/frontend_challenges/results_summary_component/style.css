@@ -1,0 +1,66 @@
+* {
+    border: 2px solid red;
+
+}
+
+
+/* & div: The & refers to the parent selector
+(#flex in this case) and targets its child <div> elements.
+This is using Sass/SCSS syntax, which compiles to standard CSS.
+In regular CSS, this would simply be #flex div. */
+.flex_cont {
+    display: flex;
+    flex-wrap: wrap;
+
+    & div :first-child {
+        width: 400px;
+        height: 400px;
+
+    }
+}
+
+#left_blue {
+
+    background-color: hsl(228, 45%, 44%);
+
+}
+
+
+#white_right {
+    background-color: white;
+
+
+}
+
+/* if the condition of the query is met- it will ooverride the above styles
+effectively the media is a new CSS file 
+no limitatiion of the num of media querries allowed, but the order is important-
+last wins if conditions are alike*/
+@media(width <=600px) {
+    .flex_cont {
+        flex-direction: column;
+    }
+
+    #white_right {
+        /* background-color: green; */
+
+
+    }
+}
+
+/* #flex :first-child{
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+
+
+/* ############ NOTES ########### */
+/* W/O SPACE: The & div:first-child selector will apply styles only
+to the first div child of #flex. This means only the first div
+that is a direct child of #flex will have the width and height of 400px. */
+
+/* W SPACE: The & div part ensures that the selector is inside a <div>,
+ meaning it’s looking for a <div> element first.
+The space between div and :first-child means you're looking for 
+any child element inside the div that is the first child of that div. */

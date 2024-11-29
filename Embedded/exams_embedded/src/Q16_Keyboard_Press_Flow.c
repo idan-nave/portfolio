@@ -1,0 +1,55 @@
+Detailed description of the flow of a keypress on a computer keyboard which displays a character on the monitor, through hardware and software:
+
+################################**Sequence**#################################
+
+*The switch underneath the key closes.
+This closes a circuit that sends a signal to the keyboard controller.
+*The keyboard controller generates an interrupt signal and sends it to the CPU.
+*The CPU receives the interrupt signal and enters the interrupt handling routine
+*The interrupt handling routine reads the scan code from the keyboard controller
+*The interrupt handling routine passes the scan code to the operating system.
+*The operating system looks up the scan code in a table to determine which character corresponds to the key that was pressed.
+*The operating system displays the corresponding character on the monitor.
+*The interrupt handling routine exits and the CPU returns to the task that it was previously working on.
+
+################################**Hardware**#################################
+
+When you press a key on your keyboard, a switch underneath the key closes. This closes a circuit that sends a signal to the keyboard controller. The keyboard controller is a small chip that is responsible for translating the keystroke into a scan code. The scan code is a unique number that identifies the key that was pressed.
+
+The keyboard controller then sends the scan code to the CPU (central processing unit) through a data bus. The CPU is the main chip in the computer that controls all of the other components.
+
+################################**Software**#################################
+
+The CPU receives the scan code from the keyboard controller and passes it to the operating system. The operating system is a software program that controls the basic functions of the computer, such as managing memory and running applications.
+
+The operating system then looks up the scan code in a table to determine which character corresponds to the key that was pressed. For example, the scan code for the "A" key is 65. The operating system then displays the corresponding character on the monitor.
+
+#####################**Polling and Interrupts**#####################
+
+There are two ways that the CPU can receive data from the keyboard controller: polling and interrupts. With polling, the CPU periodically checks the keyboard controller to see if there is any data waiting. With interrupts, the keyboard controller sends a signal to the CPU whenever there is data waiting.
+
+Polling is less efficient than interrupts, but it is simpler to implement. Interrupts are more efficient, but they require the operating system to keep track of which interrupts are pending.
+
+In most cases, the operating system uses interrupts to receive data from the keyboard controller. This is because interrupts allow the CPU to respond to keystrokes more quickly.
+
+**IRQ, ISR, Interrupt Signals, Processor State Changes, Registers Used to Save Data**
+
+When the keyboard controller sends an interrupt signal to the CPU, the CPU stops what it is doing and executes a special routine called an interrupt service routine (ISR). The ISR is responsible for processing the interrupt and taking any necessary action.
+
+The ISR typically reads the scan code from the keyboard controller and passes it to the operating system. The operating system then looks up the scan code in a table to determine which character corresponds to the key that was pressed. For example, the scan code for the "A" key is 65. The operating system then displays the corresponding character on the monitor.
+
+After the ISR has finished processing the interrupt, the CPU returns to the task that it was previously working on.
+
+The registers that are used to save data during an interrupt vary depending on the processor. However, some common registers that are used include the program counter (PC), the stack pointer (SP), and the status register (SR).
+
+The PC stores the address of the instruction that the CPU was executing when the interrupt occurred. The SP stores the address of the top of the stack. The SR stores the status of the CPU, such as the interrupt enable bit.
+
+During an interrupt, the CPU saves the values of these registers on the stack. This is done so that the CPU can return to the interrupted task after the interrupt has been processed.
+
+#####################**Definitions**#####################
+
+IRQ (Interrupt Request) is a signal that is sent from a device to the CPU to indicate that the device needs attention. The IRQ number is a unique identifier for the device that is sending the interrupt.
+ISR (Interrupt Service Routine) is a program that is executed when an interrupt is received. The ISR is responsible for handling the interrupt and taking any necessary action.
+Interrupt signals are electrical signals that are used to communicate between devices and the CPU. The interrupt signals are typically generated by hardware devices, such as the keyboard controller.
+Processor state changes occur when the CPU enters or leaves an interrupt. The processor state includes the values of the registers, the program counter, and the status register.
+Registers used to save data are used to store the values of the registers during an interrupt. The most common registers that are saved are the program counter, the stack pointer, and the status register.

@@ -1,0 +1,9 @@
+*{
+    border: 2px solid black;
+}
+
+.flex{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}

@@ -1,0 +1,31 @@
+// Exercise 6 - Dynamic To-Do List
+// In this exercise, you'll create a dynamic to-do list that allows users to
+// add, delete, and complete tasks using JavaScript and DOM
+// manipulation.
+// Instructions:
+// 1. Create a basic HTML le with an input eld, a button to add
+// tasks, and an empty unordered list to display tasks.
+// 2. Use JavaScript to access the input eld and button elements
+// and add an event listener to the button element. When the
+// button is clicked, a new task should be added to the list with
+// the content of the input eld.
+// 3. Add a delete button to each task in the list. When the delete
+// button is clicked, the corresponding task should be removed
+// from the list.
+// 4. Add a checkbox to each task in the list. When the checkbox is
+// checked, the corresponding task should be marked as
+// completed and styled dierently.
+// 5. Add a clear button to the page. When the clear button is
+// clicked, all completed tasks should be removed from the list.
+
+my vision:
+
+i want the style to span over the screen responsively, and look more like a grid of notes, so every new task is added left to right and wrapped  if needed. each should have a random color on creation. the pin image will be in the top middle of each note, and will be used as the delete button.
+the add task button will be a big potential note place-holder at the end of the list of notes.
+the checkbox will be a button with a pencil button at the right bottom of each note, when pressed, the text of the note will be crossed.
+if a note is hovered it is scaled a bit to show interaction. if clicked- text should be editable.
+
+each task should have a header and a body, both editable
+make sure to cross out the text with a font line, if the pencil is pressed
+
+an animation for each pin- if hovered, make it show that it is about to delete the note, as it is moving up out of the screen plain and glows red. the note brightness will be brighter to suggest it is is about to be deleted. if pin is indeed pressed, the not will have an animation to drive out and fade out, and the pin will shoot out fading as if was thrown.

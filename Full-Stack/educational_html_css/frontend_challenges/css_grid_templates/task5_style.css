@@ -1,0 +1,44 @@
+* {
+    border: 2px solid rgb(0,0,0);
+}
+
+/* Design is Mobile-first,
+conditioned by media-querries for Tablet & Desktop */
+div {
+    border: 1px solid lime;
+}
+
+.flex {
+    display: grid;
+    gap: 0px;
+    /* width: 500px; */
+    /* align-items:  center; */
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(12,1fr);
+
+}
+
+.box1 {
+    grid-area: 1/1/4/4;
+    background-color: lightpink;
+
+}
+
+.box2 {
+    grid-area: 4/4/7/7;
+    background-color: lightpink;
+
+}
+
+.box3 {
+    grid-area: 7/7/10/10;
+    background-color: lightpink;
+
+}
+
+.box4 {
+    grid-area: 10/10/13/13;
+    background-color: lightpink;
+
+}
+

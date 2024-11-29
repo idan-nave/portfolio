@@ -1,0 +1,63 @@
+S1 F0/21. F0/22
+S3 F0/21, F0/22
+PAgP (PO1)
+
+S1 G0/1, G0/2
+S2 G0/1, G0/2
+LACP (PO2)
+
+S2 F0/23, F0/24
+S3 F0/23, F0/24
+Negotiated LACP (PO3)
+
+
+
+S1
+int range fastEthernet 0/21-22
+shutdown
+channel-gr 1 mod desir
+no shutdown
+exi
+int range g 0/1-2
+shutdown
+channel-gr 2 mod active
+no shutdown
+exi
+int port-ch 1
+switchport mode trunk 
+int port-ch 2
+switchport mode trunk 
+exi
+spanning-tree vlan 1 root primary
+
+S2
+int range fastEthernet 0/23-24
+shutdown
+channel-gr 3 mod passive
+no shutdown
+exi
+int range g 0/1-2
+shutdown
+channel-gr 2 mod active
+no shutdown
+exi
+int port-ch 2
+switchport mode trunk 
+int port-ch 3
+switchport mode trunk 
+
+S3
+int range fastEthernet 0/23-24
+shutdown
+channel-gr 3 mod passive
+no shutdown
+exi
+int range fastEthernet 0/21-22
+shutdown
+channel-gr 1 mod desir
+no shutdown
+exi
+int port-ch 1
+switchport mode trunk 
+int port-ch 3
+switchport mode trunk 

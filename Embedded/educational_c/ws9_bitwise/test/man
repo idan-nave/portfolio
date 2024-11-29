@@ -1,0 +1,30 @@
+
+1.Function that multiplies x by 2^y 
+2.a.Function that receives unsigned int n,
+• Returns 1 if n is a power of 2. Otherwise it returns ..
+• Implement using a loop (in helper func). 
+2.b.Function that receives unsigned int n,
+• Returns 1 if n is a power of 2. Otherwise it returns ..
+• Implement without a loop. 
+3. A function that adds 1 to an int without using arithmetic operators.
+4. A function that receives an array of unsigned ints and only prints
+5.a. ByteMirror - reverse the bits
+• Implement using a loop.
+5.b. ByteMirror - mirror 8 bits of byte
+• Implement without a loop. 
+6 Implement the following functions without using an if:
+6.a. • A function that receives an unsigned char and checks the 2nd and 6th bits. If they are both on, returns true.
+6.b. • A function that receives an unsigned char and checks the 2nd and 6th bits. If at least one of them is on, returns true.
+6.c. • A function that receives an unsigned char, 
+        swaps between the 3rd and 5th bits, and returns the new number.
+7.a. A function that receives an unsigned int and returns the closest (smaller) number that is divisible by 16 without a remainder.
+• For example: 33 returns 32, 17 returns 16, 22 returns 16.
+7.b. A function that receives an unsigned int and returns the closest (smaller) number that is divisible by 16 without a remainder.
+8. A function that swaps 2 variables without using a third variable
+Will it always work? Why?
+ Function to swap two variables without using a third variable 
+9. A function that counts the number of set bits in an integer.
+9.a. Function to count the number of set bits using a loop 
+9.b. Function to count the number of set bits without using a loop 
+10. Float Analysis: Implement a program that receives a float from the user, and prints its bits.
+• Use this function to try to analyze the implementation of float.

@@ -1,0 +1,200 @@
+/*************************** Code Review Report Template **********************/
+/*
+  Name: 
+  Project: Checklist for peer-code review
+  Reviewer: 
+  Date: 24/07/23
+  Version: 1.0 --Creation
+           1.1 --Publish
+  Maintainer: idan nave
+*/
+
+/******************************* Scope of document ****************************/
+
+    * The following document is designed to standardise the teams' peer-code
+      reviewing practices and shorten submit-to-approval time.
+    * It is based on ongoing remarks and team-mentor Q&A.
+    * The file is structured as a report, and will be referenced as such.
+    * There should be a single report for each program being reviewd,
+      located at Git_working_dir/c/proj_name/files/Code_Review_Report.txt
+    * Order of review is important, should be conducted as follows.
+      Chapters: #A (Header), #B (Main), #C (header), #D (header), 
+    * A review is always done with neutral objective mindset & alone.
+    * A report is considered Done if all [ ] are marked [V]
+      & Status Section is fully filed.
+          
+/******************************************************************************/
+/********************************* Report Status ******************************/
+/******************************************************************************/
+
+    - [ ] Reviewr recieved project files on __/__/__.
+     reviewing practices and shorten submit-to-approval time.
+    - [ ] All required files are applicable:
+           - [ ] API_Header.h    - [ ] Implementations_Source.c 
+           - [ ] Main_Source.c   - [ ] Valgrind Report
+    - [ ] Done noting TODOs in files:
+           - [ ] API_Header.h    - [ ] Implementations_Source.c 
+           - [ ] Main_Source.c   - [ ] Valgrind Report
+    - [ ] Report sent to developer.
+    - [ ] TODOs fixes approved after fixes aplied by developer.
+    - [ ] Report Approved by_________ - all sent back on __/__/__.
+        
+        
+/******************************** CHAPTER #A **********************************/
+/********************** Header File Code Review Checklist *********************/
+/******************************************************************************/
+     Review Done For:      - [ ] API_Header.h 
+
+1. **Client Approval**
+   - [ ] Is the header file contain the approved API?
+
+2. **Documentation**
+   - [ ] Is the header file name descriptive?
+   - [ ] Does the file name and description clearly indicate the purpose of the source file?
+   - [ ] Is the name of the author and the reviewer mentioned in the head zone?
+   - [ ] Are there any specific tasks or TODOs assigned to the reviewer? (search)
+   - [ ] Is the date of creation or last modification of the file specified?
+   - [ ] Are file versions noted?
+
+3. **Header Guards**
+   - [ ] Does the header file have proper include guards to prevent multiple inclusions?
+   - [ ] Are the include guard names unique and appropriately formatted?
+
+4. **Constant Definitions**
+   - [ ] Are #define statements capital-named?
+   - [ ] Are there comments explaining purpuse of use?
+
+5. **Global Declarations**   
+   - [ ] Are names for globals snake_cased? are they initialize?
+   - [ ] Are there comments explaining purpuse of use?
+
+6. **Data Structures**
+   - [ ] Are structs and enums directly declared with name suffix "_ty"?
+   - [ ] Are function prototypes and data structures documented with their intended usage?
+
+7. **Function Declarations**
+   - [ ] Are all function declarations consistent (arguments names omitting/specify)
+   - [ ] Are function prototypes documented with their intended usage?
+   - [ ] Are names for functions use Verbs over Nouns & PascalCased?
+
+8. **Comments and Formatting**
+    - [ ] Is the header file properly formatted with appropriate spacing and indentation?
+
+
+/******************************** CHAPTER #B **********************************/
+/***************** Source File Top-Area Code Review Checklist *****************/
+/******************************************************************************/
+     Review Done For:      - [ ] Main_Source.c    Implementations_Source.c
+
+1. **Documentation**
+   - [ ] Is the source file name descriptive?
+   - [ ] Does the file name and description clearly indicate the purpose of the source file?
+   - [ ] Is the name of the author and the reviewer mentioned in the head zone?
+   - [ ] Are there any specific tasks or TODOs assigned to the reviewer? (search)
+   - [ ] Is the date of creation or last modification of the file specified?
+   - [ ] Are file versions noted?
+
+2. **Libraries**
+   - [ ] Are all included libraries commented upon their usage?
+   - [ ] Are the included libraries organized properly: standard > 3rd party > API ?
+   
+3. **Global Definitions**
+   - [ ] Are global variables and constants appropriately named and described?
+   - [ ] Are global variables kept to a minimum, and is their use justified & explained?
+   - [ ] Is there a clear separation between constants and variables?
+   
+4. **Forward Declarations**
+   - [ ] Are there no forward declarations at all? It implies that no static aux functions.
+   - [ ] Are forward declarations used instead of unnecessary includes to reduce coupling?
+
+5. **Error Definitions**
+   - [ ] Can the apps's error handling mechanism be understood easily by enum / errno?
+   - [ ] Are error codes and their corresponding descriptions consistent with mechanism?
+
+6. **Commenting**
+   - [ ] Are ***Full-line-comments*** used effectively to explain the 
+         purpose and functionality of the source file?
+   - [ ] Are there any uncommented functions or variables that need to be justified?
+
+/******************************** CHAPTER #C **********************************/
+/*************** MAIN Function Definition Code Review Checklist ***************/
+/******************************************************************************/
+     Review Done For:      - [ ] Main_Source.c    Implementations_Source.c
+     
+1. **Function Call**
+   - [ ] Is there only one main function in the entire project archive? (search)
+   - [ ] Is the main function placed at the top of the source file ?
+
+2. **Function Signature & Formation**
+   - [ ] Is the main signature same as:`int main(int argc, char *argv[], char *envp)`?
+   - [ ] Are Command-line Argument `argc` and `argv` tested for invalid user-input?
+   - [ ] Do the main function exceeds 5 rows? there should be one call only.
+   - [ ] Does it return an enum-integer as exit status (NO_ERROR)?
+
+3. **Resource Cleanup**
+   - [ ] Are all allocated resources appropriately released before main termination?
+         the developer must append Valgrind report indicating 100% Clean of leaks.
+
+
+/******************************** CHAPTER #D **********************************/
+/************ Imp/Aux Function Definition Code Review Checklist ***************/
+/******************************************************************************/
+     Review Done For:      - [ ] Main_Source.c    Implementations_Source.c
+     
+1. **Function Signature**
+   - [ ] Does the function's return type match the expected data type explictily?
+   - [ ] Are the function parameters appropriately defined and snake_case_named?
+   - [ ] Are there justifications for not defining the reviewd function as static?
+
+2. **Function Implementation**
+   - [ ] Does the function perform the intended task according to its specification?
+   - [ ] Were all magic numbers swapped with enums / defs??
+   - [ ] Are edge-cases logically addressed?
+   - [ ] Is the function's algorithm efficient?
+   - [ ] Is the function's length reasonable, are there fixes for better readability?
+   - [ ] Was void/return chosen wisely? can something go wrong with implementation?
+
+3. **Variable Declarations**
+   - [ ] Are all variables declared at the beginning of the function in seperate lines?
+   - [ ] Are variable names descriptive & snak_cased??
+   - [ ] Are runners & counters initialized?
+
+4. **Memory Management**
+   - [ ] Are all dynamically allocated memory blocks properly checked
+         for successful allocation ( not by asserting !)?
+   - [ ] Are all dynamically allocated memory blocks properly freed & NULLed?
+   - [ ] Is there any potential for buffer overflows or other 
+         memory-related issues? (return before free expression)
+
+5. **Pointer Handling**
+   - [ ] Are pointers checked for NULL before dereferencing?
+   - [ ] Is pointer arithmetic used correctly, consistently and safely?
+   
+6. **Standard I/O**
+   - [ ] Is standard input (stdin), output (stdout), and error (stderr)
+         handled appropriately? (no prints to CLN, flushing, etc).
+   - [ ] Are there any potential issues with input/output buffering?
+
+7. **Control Flow**
+   - [ ] Are conditional statements (if, else) correct and concise?
+   - [ ] Are loops (for, while) correctly implemented and terminated?
+   - [ ] Are there any potential infinite loops or unintended exits?
+
+8. **Error Handling**
+   - [ ] Does the function handle errors and unexpected inputs appropriately?
+   - [ ] Are error codes or exceptions used consistently for error reporting?
+
+9. **Return Statements**
+   - [ ] Does the function return an appropriate value or status?
+   - [ ] Are return statements consistent throughout the function?
+   - [ ] Does it return an enum-integer as exit status (NO_ERROR)?
+   
+10. **Comments and Documentation**
+    - [ ] Are there comments explaining complex sections of the code?
+    - [ ] Is the function's purpose and usage documented clearly?
+
+11. **Testing**
+    - [ ] Have test cases been considered for different boundary conditions?
+    - [ ] Is test mechanism efficient & automatic?
+    
+/******************************* End of document ******************************/

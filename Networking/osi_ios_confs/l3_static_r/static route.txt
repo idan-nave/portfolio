@@ -1,0 +1,72 @@
+en
+conf t
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+vlan 50
+vlan 60
+vlan 70
+vlan 80
+vlan 99
+
+S2
+int range f0/18,f0/11,f0/6
+no shutdown
+switchport mode access 
+switchport access vlan 20
+spanning-tree portfast
+spanning-tree bpduguard enable
+exi 
+int fastEthernet 0/18
+switchport access vlan 20
+exi 
+int fastEthernet 0/11
+switchport access vlan 10
+exi 
+int fastEthernet 0/6
+switchport access vlan 30
+exi
+int range f0/1-4
+switchport mode trunk 
+swit noneg
+switchport trunk native vlan 99
+exi
+int vlan 10
+ip add 172.17.10.0 255.255.255.0
+exi
+int vlan 20
+ip add 172.17.20.0 255.255.255.0
+exi
+int vlan 30
+ip add 172.17.30.0 255.255.255.0
+exi
+int vlan 99
+ip add 172.17.99.12 255.255.255.0
+exi
+spanning-tree mode rapid-pvst
+spanning-tree vlan 1,10,20,30,40,50,60,70,80,99 root secondary
+
+S1
+int range f0/1-4
+switchport mode trunk 
+swit noneg
+switchport trunk native vlan 99
+exi
+int vlan 99
+ip add 172.17.99.11 255.255.255.0
+exi
+spanning-tree mode rapid-pvst
+spanning-tree vlan 1,10,30,50,70 root primary
+
+S3
+int range f0/1-4
+switchport mode trunk 
+swit noneg
+switchport trunk native vlan 99
+exi
+int vlan 99
+ip add 172.17.99.13 255.255.255.0
+exi
+spanning-tree mode rapid-pvst
+spanning-tree vlan 20,40,60,80,99 root primary

@@ -1,0 +1,34 @@
+* {
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.flex {
+    display: grid;
+    /* align-items:  center; */
+    height: 50vh;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    align-content: center;
+    gap: 15px;
+    margin: 40px;
+    border: 2px solid rgb(0, 38, 255);
+
+}
+
+#left {
+    border: 2px solid red;
+
+    grid-column: 1/4;
+    grid-row: 4/10;
+
+    /* display: flex; */
+}
+
+#right {
+    border: 2px solid red;
+
+    grid-column: 4/13;
+    grid-row: 4/10;
+
+    /* display: flex;   */
+}

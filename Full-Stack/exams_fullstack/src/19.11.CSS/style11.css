@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    background-color: gray;
+    border-radius: 100%;
+
+}
+
+.outer .inner {
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    border-radius: 100%;
+    transition: 2s ease-in;
+
+}
+
+.outer .inner:hover{
+
+    cursor: pointer;
+    transform: scale(0.8);
+}

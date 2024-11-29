@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    /* VISUAL DEBUG */
+    /* border: 2px solid rgb(58, 114, 72); */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* scrolling smooth */
+}
+
+/* Design is Mobile-first,
+    Design for desktops from 1280×720 to 1920×1080
+    Design for tablets from 601×962 to 1280×800
+    Design for mobiles from 360×640 to 414×896
+    See Tablet & Desktop .css files */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sour Gummy', Arial, sans-serif;
+    background-image: url("../media/images/posters/background_steel.jpg");
+    background-size: cover;
+}
+
+/* #################################################
+########   #1st Element in grid- Header  ###########
+################################################# */
+.header_cont {
+    padding: 0 2rem;
+    height: 12vh;
+    transition: background-color 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.header_cont:hover {
+    background-color: #ffffff;
+}
+
+.logo_img {
+    height: 4rem;
+    object-fit: contain;
+    /* ensures the image scales well */
+    transition: transform 0.3s ease;
+    /* smooth scaling on hover */
+    border-radius: 1rem;
+}
+
+.logo_img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 100px rgb(0, 0, 0));
+    cursor: pointer;
+}
+
+.search_wrap {
+    display: flex;
+    align-items: center;
+    flex-grow: 2;
+    /* allow the search bar to expand */
+    margin: 0 2rem;
+    margin-left: 4em;
+}
+
+.search_bar {
+    width: 100%;
+    padding: 1rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    min-width: 100px;
+    background-color: #a6a6a6;
+    color: #333;
+    font-weight: bolder;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search_bar:focus {
+    border-color: #39393b;
+    box-shadow: 0 0 8px rgba(92, 107, 192, 0.3);
+    outline: none;
+}
+
+.search_btn {
+    position: relative;
+    right: 4em;
+    /* shift search icon over the bar */
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.search_btn:hover {
+    transform: scale(1.2);
+}
+
+.top_nav_wrap {
+    flex-shrink: 0;
+    /* unshrinking */
+    display: flex;
+    align-items: center;
+    min-width: 50px;
+    /* for flex-wrap condition */
+    gap: 1rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    min-width: 100px;
+    background-color: #a6a6a6;
+    padding: 0.4rem 1rem;
+    margin-top: 0.5rem;
+    border-color: #39393b;
+    box-shadow: 0 0 8px rgba(92, 107, 192, 0.3);
+}
+
+.top_nav_item {
+    width: 3rem;
+    height: 3rem;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.top_nav_item:hover {
+    transform: scale(1.2);
+}
+
+/* ##############################################
+######   #7th Element in grid- Footer   #########
+############################################=#### */
+/* General Footer Styling */
+.footer_cont {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    width: 100%;
+}
+
+.footer_cont a {
+    color: #f1c40f;
+    text-decoration: none;
+}
+
+.footer_cont a:hover {
+    text-decoration: underline;
+}
+
+.legal_wrap, .payment_info , .social_links{
+    flex: 1 1 100%;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+.social_links ul li{
+    display: inline;
+    margin-inline: 2em;
+}
+
+.payment_info img {
+    margin: 1em;
+    max-width: 50px;
+    height: auto;
+}
+
+.credit-cards img {
+    margin: 1em;
+    max-width: 50px;
+}
+
+/* #################################################
+###########    global buttons design     ###########
+################################################# */
+.btn_global {
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: white;
+    padding-inline: 3em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding-bottom: 0.2rem;
+}
+
+.btn_global:hover {
+    color: #000;
+    /* transform: translateY(-2px); */
+    background-color: #f1c40f;
+    border-bottom: 2px solid #000;
+}
+
+.btn_global:visited {
+    color: #000;
+}
+
+.return_btn {
+    width: 1.8rem;
+    height: 2rem;
+    margin-inline: 1em;
+}
+
+.return_btn:hover {
+    transform: scale(1.2);
+}
+
+/* #################################################
+########   custommized radio-buttons design  #######
+################################################# */
+.radio_global {
+    display: flex;
+    gap: 20px;
+    margin-inline: 40px;
+}
+
+.radio_lbl_global {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.radio_input {
+    display: none;
+    /* Hide default radio button */
+}
+
+.radio_btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+.radio_btn:before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.radio_lbl_global:hover .radio_btn {
+    border: 3px solid black;
+    /* Wider and black border on hover */
+}
+
+.radio_lbl_global .radio_input:checked+.radio_btn:before {
+    background-color: #f1c40f;
+    /* Yellow color when selected */
+}
+
+.radio_txt {
+    font-size: 16px;
+}
+
+
+/* #################################################
+#####  Responsive Design for smaller screens   #####
+################################################# */
+@media (max-width: 768px) {
+
+    .header_cont {
+        flex-direction: column;
+        /* stack items vertically on small screens */
+        height: auto;
+        /* remove fixed height */
+        padding: 1rem;
+        /* reduce padding on small screens */
+    }
+
+    .search_wrap {
+        margin: 1rem 0;
+        /* add vertical margin between elements */
+    }
+
+    .logo_wrap {
+        margin-bottom: 1rem;
+        /* space between logo and search bar */
+    }
+
+    .top_nav_wrap {
+        justify-content: center;
+        /* center nav items on small screens */
+    }
+
+    .dropdowns-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dropdown,
+    .model-dropdown {
+        width: 100%;
+        /* Full width on smaller screens */
+    }
+
+    .parts_radio {
+        justify-content: center;
+    }
+
+    .quick_shop_links_wrap {
+        justify-content: center;
+        /* center the links when wrapping */
+    }
+
+    .quick_shop_link {
+        font-size: 1.1rem;
+        /* slightly smaller font on smaller screens */
+    }
+
+    .catagoory_card img {
+        height: 50%;
+        /* Scale down images for better UX */
+        width: auto;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 1rem;
+    }
+
+    /* product pages */
+    .product_cont {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        margin-bottom: 1rem;
+    }
+}

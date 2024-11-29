@@ -1,0 +1,46 @@
+*{
+    border: 2px solid red;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main_cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+}
+
+.nav_cont {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    padding: 20px;
+    width: 40vh;
+    
+    background-color: black;
+    border-radius: 20%;
+    
+    transition: 0.3s ease-in;
+}
+
+.item {
+    width: 2em;
+    height: 2em;
+    filter: invert(12%) sepia(30%) saturate(541%) hue-rotate(181deg) brightness(95%) contrast(95%);
+}
+
+.item:hover {
+    cursor: pointer;
+    filter: invert(12%) sepia(30%) saturate(541%) hue-rotate(181deg) brightness(95%) contrast(0%);
+}
+
+.item:active {
+    cursor: pointer;
+    transform: scale(2);
+    filter: invert(12%) sepia(30%) saturate(541%) hue-rotate(181deg) brightness(95%) contrast(0%);
+}

@@ -1,0 +1,64 @@
+# Compiler to use
+CC = gcc
+
+# Compiler flags
+CFLAGS = -g -pedantic-errors -Wall -Wextra -ansi
+
+# Source file paths
+SRC_FILES =  Test_ws5_stack.c ws5_stack.c
+
+INCLUDE_DIR = .
+
+BIN_DIR = ./bin
+
+# Object file paths
+OBJ_FILES = obj/Test_ws5_stack.o obj/ws5_stack.o
+
+# Binary name and path
+BIN_NAME = program
+
+# Specify phony targets (targets that are not files)
+# is used to specify targets that are not actual files.
+# These targets are typically used for tasks that don't create files
+# with the target name, such as "cleaning" or "all" tasks.
+.PHONY: all clean
+
+# By marking all as phony, you're telling make that it's not an actual file that needs to be created.
+#Instead, make should consider it a target that needs to be executed whenever you run make without any
+# arguments.
+
+# When you run make clean, the recipe associated with the clean target is executed, and it removes the 
+# specified files. Marking it as phony ensures that make knows it's not producing a file named "clean".
+
+# Default target
+# The 'all' target is the default target that will be executed when you run 'make' without any arguments.
+# It depends on the binary file, so 'make' will execute the recipe to build the binary.
+all: $(BIN_NAME)
+
+# Compile the final binary from object files
+# This target specifies how to create the final binary executable from the object files.
+# The dependencies are the object files, and the recipe compiles and links them using the compiler.
+# The result is the binary specified by the BIN_NAME variable.
+
+$(BIN_NAME): $(OBJ_FILES) | $(BIN_DIR)
+	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -o $(BIN_DIR)/$@ $(OBJ_FILES)
+
+# Clean up object and binary files
+# This target specifies how to clean up the project by removing object files and the binary.
+# It doesn't have any dependencies, and the recipe simply removes the specified files.
+
+obj/Test_ws5_stack.o: Test_ws5_stack.c | obj
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+obj/ws5_stack.o: ws5_stack.c | obj
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+obj:
+	mkdir -p obj
+
+$(BIN_DIR):
+	mkdir -p $(BIN_DIR)
+
+clean:
+	rm -rf obj $(BIN_DIR)
+

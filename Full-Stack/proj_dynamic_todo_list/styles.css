@@ -1,0 +1,226 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+
+.todo-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hdr-and-btn {
+    align-self: center;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#task-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#add-task-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    background-color: #e9ecef;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.note {
+    position: relative;
+    width: 200px;
+    min-height: 150px;
+    max-height: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, filter 0.3s;
+}
+
+.note:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Note brightens when about to delete */
+.note.note-hover-delete {
+    filter: brightness(1.5);
+}
+
+/* Pin image */
+.note .pin {
+    position: absolute;
+    top: -10px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s, filter 0.3s;
+}
+
+/* Pin hover effect */
+.pin.pin-hover-delete {
+    transform: translateX(-50%) translateY(-15px);
+    /* Move the pin upwards on hover */
+    box-shadow: 0 0 10px red;
+    /* Red glow on hover */
+}
+
+.note-header {
+    overflow-y: auto;
+    word-wrap: break-word;
+    word-break: break-all;
+    /* This will break long words */
+    white-space: normal;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    /* Subtle line to separate the header from the body */
+    outline: none;
+    /* Remove focus outline */
+}
+
+/* Style for the editable note body */
+.note-body {
+    overflow-y: auto;
+    word-wrap: break-word;
+    word-break: break-all;
+    /* This will break long words */
+    white-space: normal;
+    font-size: 14px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    /* Border for the body */
+    outline: none;
+    /* Remove focus outline */
+}
+
+.note .note-text {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    overflow-wrap: break-word;
+}
+
+.note .note-text.completed {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+/* pencil button for Completed tasks (text should be crossed out) */
+.note .complete-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.note .completed {
+    text-decoration: line-through;
+    color: gray;
+    filter: blur(1.5);
+}
+
+/* post-deletion classes */
+/* Pin thrown animation */
+.pin-thrown {
+    animation: pin-throw 0.5s forwards;
+}
+
+/* Note fade out animation */
+.note-fade-out {
+    animation: note-fade-out 0.5s forwards;
+}
+
+/* Animation for pin throwing out */
+@keyframes pin-throw {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-50px) rotate(45deg);
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(90deg);
+        opacity: 0;
+    }
+}
+
+/* Animation for note fading out */
+@keyframes note-fade-out {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* clear button */
+#clear-completed-btn {
+    background-color: #c05d59;
+    color: #000000;
+    font-size: 16px;
+    padding: 20px;
+    margin: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Smooth transitions */
+}
+
+#clear-completed-btn:hover {
+    background-color: #a03f3b;
+    transform: scale(1.05);
+}
+
+#clear-completed-btn:active {
+    background-color: #d1a680;
+    transform: scale(0.98);
+}
+
+#clear-completed-btn:focus {
+    outline: none;
+    /* Remove focus outline */
+    box-shadow: 0 0 0 3px rgba(255, 165, 100, 0.5);
+    /* Soft focus ring */
+}

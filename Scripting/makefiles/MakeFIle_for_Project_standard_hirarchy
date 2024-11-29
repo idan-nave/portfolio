@@ -1,0 +1,57 @@
+# Compiler to use
+CC = gcc
+
+# Compiler flags
+CFLAGS = -g -pedantic-errors -Wall -Wextra -ansi
+
+# Directory paths
+# Specify the paths to your source code, include files, object files, and binary directory
+SRC_DIR = $(HOME)/wd/ds/ws5_stack/src
+INCLUDE_DIR = $(HOME)/wd/ds/ws5_stack/include
+OBJ_DIR = $(HOME)/wd/ds/ws5_stack/obj
+BIN_DIR = $(HOME)/wd/ds/ws5_stack/bin/debug
+
+# Source and header file paths
+# Specify the source files for compilation
+SRC_FILES = $(SRC_DIR)/ws5_stack.c $(SRC_DIR)/Test_ws5_stack.c
+# Generate corresponding object file paths for each source file
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
+# Specify the name and path of the final binary executable
+BIN_NAME = $(BIN_DIR)/ds5.out
+
+# Specify phony targets (targets that are not files)
+.PHONY: all clean
+
+# Default target
+# The 'all' target is the default goal of the 'make' command when you don't specify a specific target.
+# It depends on the binary file, so 'make' will execute the recipe to build the binary.
+all: $(BIN_NAME)
+
+# Compile the final binary from object files
+# This target specifies how to create the final binary executable from the object files.
+# The dependencies are the object files, and the recipe compiles and links them using the compiler.
+# The result is the binary specified by the BIN_NAME variable.
+$(BIN_NAME): $(OBJ_FILES) | $(BIN_DIR)
+	$(CC) $(CFLAGS) -o $@ $(OBJ_FILES)
+
+# Compile each source file into an object file
+# This target specifies how to compile each source file into an object file.
+# The dependencies are the source files, and the recipe compiles each file with the include directory option.
+# The -I$(INCLUDE_DIR) flag tells the compiler where to find the header files.
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -c -o $@ $<
+
+# Create the object directory if it doesn't exist
+$(OBJ_DIR):
+	mkdir -p $@
+
+# Create the binary directory if it doesn't exist
+$(BIN_DIR):
+	mkdir -p $@
+
+# Clean up object and binary directories
+# This target specifies how to clean up the project by removing object files and the binary.
+# It doesn't have any dependencies, and the recipe simply removes the specified files.
+#clean:
+#	rm -rf $(OBJ_DIR) $(BIN_DIR)
+

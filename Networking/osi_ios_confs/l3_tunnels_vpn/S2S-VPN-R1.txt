@@ -1,0 +1,41 @@
+R1
+!!! PHASE 1 !!!!
+
+crypto isakmp policy 10
+  encryption aes 256
+  authentication pre-share
+  hash sha256
+  group 14
+  lifetime 3600
+
+crypto isakmp key cisco123 address 64.100.1.2
+
+!!! PHASE 2 !!!!
+
+crypto ipsec transform-set S2S-VPN esp-aes 256 esp-sha256-hmac
+  exit
+
+ip access-list extended S2S-VPN-ACL
+  permit ip 10.10.0.0 0.0.3.255 10.10.4.0 0.0.3.255
+  permit ip 10.10.0.0 0.0.3.255 10.10.16.0 0.0.7.255
+
+crypto map S2S-CMAP 10 ipsec-isakmp
+  match address S2S-VPN-ACL
+  set peer 64.100.1.2
+  set pfs group14
+  set transform-set S2S-VPN
+  set security-association lifetime seconds 900
+  exit
+
+interface e0/0
+  crypto map S2S-CMAP
+
+
+
+# Verification #
+
+show crypto isakmp policy
+show crypto isakmp sa
+
+show crypto map
+show crypto ipsec sa

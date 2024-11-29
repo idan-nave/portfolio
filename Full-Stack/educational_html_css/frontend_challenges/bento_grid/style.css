@@ -1,0 +1,113 @@
+/* zeroeing the CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+
+    font-size: 3em;
+}
+
+h2 {
+
+    font-size: 2em;
+}
+
+h3 {
+
+    font-size: 1em;
+}
+
+/* make the grid a centered item by itself 
+by making the body flex- notcommon to do. sgould add another DIV*/
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid_cont {
+    display: grid;
+    width: 80vw;
+    height: 100vh;
+    gap: 3%;
+    grid-template-areas:
+        "area1 area2 area2 area3"
+        "area1 area2 area2 area3"
+        "area1 area5 area6 area3"
+        "area4 area5 area6 area3"
+        "area4 area7 area8 area8"
+        "area4 area7 area8 area8"
+    ;
+}
+
+div {
+    border: 1px solid rgb(255, 0, 0);
+    border-radius: 5%;
+}
+
+.grid_item1 {
+    grid-area: area1;
+    background-color: #faeee2;
+}
+
+.grid_item2 {
+    grid-area: area2;
+    background-color: #7651dc;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    & h1 {
+        color: white;
+    }
+
+    /*
+    & div {
+        
+        align-self: flex-end;
+        justify-content: space-evenly;
+    } */
+}
+
+.grid_item3 {
+    grid-area: area3;
+
+    background-color: #dcd1fc;
+}
+
+.grid_item4 {
+    grid-area: area4;
+
+    background-color: #ffcc69;
+}
+
+.grid_item5 {
+    grid-area: area5;
+
+    background-color: #ffffff;
+}
+
+.grid_item6 {
+    grid-area: area6;
+
+    background-color: #ffcc69;
+}
+
+.grid_item7 {
+
+    grid-area: area7;
+
+    background-color: #ffffff;
+}
+
+.grid_item8 {
+    grid-area: area8;
+
+
+    background-color: #7651dc;
+}

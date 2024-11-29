@@ -1,0 +1,73 @@
+vlan 10
+name Sales
+exi
+vlan 20
+name Production
+exi
+vlan 30
+name Marketing
+exi
+vlan 88
+name Management
+exi
+vlan 99
+name Native
+
+R1
+conf t
+int g0/0
+no shut
+exi
+interface g0/0.10
+encapsulation dot1Q 10
+ip address 172.31.10.1 255.255.255.0
+interface g0/0.20
+encapsulation dot1Q 20
+ip address 172.31.20.1 255.255.255.0
+interface g0/0.30
+encapsulation dot1Q 30
+ip address 172.31.30.1 255.255.255.0
+interface g0/0.88
+encapsulation dot1Q 88
+ip address 172.31.88.1 255.255.255.0
+interface g0/0.99
+encapsulation dot1Q 99 nativ
+ip address 172.31.99.1 255.255.255.0
+exi
+ip route 0.0.0.0 0.0.0.0 s0/0/0
+
+SW1
+conf t
+interface g0/1
+swit mod trunk
+swit noneg
+swit trunk nat vlan 99
+exi
+interface range f0/21-24
+swit mod access
+swit access vlan 88
+no shutdown
+exi
+interface range f0/11-15
+swit mod access
+swit access vlan 10
+no shutdown
+exi
+interface range f0/16-20
+swit mod access
+swit access vlan 20
+no shutdown
+exi
+interface range f0/5-10
+swit mod access
+swit access vlan 30
+no shutdown
+exi
+
+HQ
+ip route 172.31.10.0 255.255.255.0 s0/0/0
+ip route 172.31.20.0 255.255.255.0 s0/0/0
+ip route 172.31.30.0 255.255.255.0 s0/0/0
+ip route 172.31.88.0 255.255.255.0 s0/0/0
+ip route 209.165.200.0 255.255.255.224 s0/1/0 1
+ip route 209.165.200.0 255.255.255.224 s0/1/1 5

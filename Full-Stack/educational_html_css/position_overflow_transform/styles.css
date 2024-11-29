@@ -1,0 +1,161 @@
+        /* Basic styling for layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+
+            align-content: center;
+        }
+
+        /* body{
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        } */
+
+        .section {
+            padding: 50px 20px;
+            text-align: left;
+        }
+
+        /* ################### NAVBARS ################## */
+
+        .NavBar {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .NavBar h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .NavBar nav {
+            margin-top: 10px;
+        }
+
+        .NavBar nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .NavBar nav a:hover {
+            text-decoration: underline;
+        }
+
+        .Secondary_NavBar_Cont {
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0px;
+
+        }
+        
+        .Secondary_NavBar {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+            padding: 20px;
+            width: 40vh;
+            
+            background-color: rgba(30, 126, 170, 0.294);
+            border-radius: 5px;
+            
+            transition: 0.3s ease-in;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        }
+
+        .Secondary_NavBar:hover {
+            transform: scaleX(1.2);
+
+        }
+
+        .sn_item {
+            width: 2em;
+            height: 2em;
+            filter: invert(12%) sepia(30%) saturate(541%) hue-rotate(181deg) brightness(95%) contrast(95%);
+        }
+
+        .sn_item:hover {
+            cursor: pointer;
+            scale: 1.2;
+            transform: translateY(-10px);
+            filter: invert(12%) sepia(30%) saturate(541%) hue-rotate(181deg) brightness(95%) contrast(0%);
+        }
+
+        /* ################### BUTTONS ################## */
+
+        .access_btn img {
+            position: Fixed;
+            top: 1rem;
+            right: 1rem;
+            width: 5%;
+        }
+
+        .access_btn img:hover {
+            cursor: pointer;
+            transform: rotate(10deg);
+        }
+
+        .a_fly_btn img {
+            position: Fixed;
+            bottom: 1rem;
+            left: 1rem;
+            width: 5%;
+        }
+
+        .a_fly_btn img:hover {
+            cursor: pointer;
+            transform: rotate(30deg);
+            scale: 1.5;
+
+        }
+
+        /* .a_fly_btn img::after{
+            content: "";           
+            width: 1000px;
+            height: 1000px;
+            position: absolute;
+            
+            background-color: green;
+        } */
+
+        /* Keyframe animation for spinning and moving horizontally */
+        @keyframes spin-and-move {
+            0% {
+                transform: translateY(-10%) rotate(0deg);
+                /* Start with no rotation */
+                left: 0;
+            }
+
+            100% {
+                transform: translateY(-10%) rotate(360deg);
+                /* Full rotation */
+                left: 100%;
+                /* Move the image to the far right */
+            }
+        }
+
+        /* ################### FOOTER ################## */
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }

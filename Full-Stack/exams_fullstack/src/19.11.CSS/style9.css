@@ -1,0 +1,21 @@
+*{
+    border: 2px solid red;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cont {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.item {
+    background-color: gray;
+}
+

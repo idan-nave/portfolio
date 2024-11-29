@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deeplink</title>
+</head>
+
+<a href="mailto:idan180394@gmail.com?subject=Inquiry&body=Hello%20there">    send email to: idan180394@gmail.com</a>
+<br>
+<a href="spotify://track/4uLU6hMCjMI75M1Z1QbWPr">Listen on Spotify</a>
+<br>
+<a href="https://www.google.com/maps/search/?api=1&query=technion">My home</a>
+<br>
+<a href="https://www.google.com/maps/dir/?api=1&travelmode==driving&dir_action=navigate&destination=technion" target="_blank">Navigate to Me</a>
+<br>
+  <!-- Ideas: videos, music, pdfs, downloads, navigate --> 
+<body>
+ 
+</body>
+</html>
+
+<!-- Deep linking for specific services like email, phone calls, navigation apps, and other third-party apps (like messaging or video conferencing apps). These deep links open the respective app or service directly, allowing for a smooth user experience. Below are examples of how to create deep links to various services:
+
+---
+
+### 1. **Mailto (Email Client)**
+
+The `mailto:` protocol is used to open the default email client with a pre-filled email address, subject, and body.
+
+#### Example:
+```html
+<a href="mailto:someone@example.com?subject=Inquiry&body=Hello%20there">Email Us</a>
+```
+- **Explanation**: When clicked, this link opens the default email client (e.g., Outlook, Gmail) with the recipient (`someone@example.com`), subject (`Inquiry`), and body (`Hello there`) pre-filled.
+
+### 2. **Phone Calls (tel: Protocol)**
+
+The `tel:` protocol allows users to dial a phone number directly from a link.
+
+#### Example:
+```html
+<a href="tel:+1234567890">Call Us</a>
+```
+- **Explanation**: Clicking this link will open the phone’s dialer app and pre-fill it with the phone number (`+1234567890`), making it easy to call the number directly.
+
+### 3. **SMS/Text Messages (sms: Protocol)**
+
+The `sms:` protocol can be used to open the SMS app with a phone number pre-filled. You can also add a message body.
+
+#### Example:
+```html
+<a href="sms:+1234567890?body=Hello%20there!">Send SMS</a>
+```
+- **Explanation**: Clicking this link will open the SMS app with the phone number (`+1234567890`) and the body (`Hello there!`) pre-filled.
+
+### 4. **WhatsApp (whatsapp:// Protocol)**
+
+You can link directly to WhatsApp to send a message or open a chat with a specific contact.
+
+#### Example:
+```html
+<a href="https://wa.me/1234567890?text=Hello%20there">Chat on WhatsApp</a>
+```
+- **Explanation**: This will open WhatsApp (on mobile or desktop) and begin a conversation with the phone number (`1234567890`). You can also pre-fill a message (`Hello there`).
+
+Alternatively, you can use the `whatsapp://` protocol for a more direct app-based link (note that this method works for the mobile app):
+```html
+<a href="whatsapp://send?phone=1234567890&text=Hello%20there">Chat on WhatsApp</a>
+```
+
+### 5. **Telegram (tg:// Protocol)**
+
+Similar to WhatsApp, you can link to Telegram with a specific username or phone number to initiate a chat.
+
+#### Example:
+```html
+<a href="tg://resolve?domain=username">Chat on Telegram</a>
+```
+- **Explanation**: This will open the Telegram app and resolve the link to the specified user (`username`).
+
+### 6. **Skype (skype:// Protocol)**
+
+For initiating a call or chat on Skype, you can use the `skype:` protocol.
+
+#### Example:
+```html
+<a href="skype:username?call">Call on Skype</a>
+```
+- **Explanation**: This opens Skype and starts a voice call with the user `username`.
+
+Alternatively, for chat:
+```html
+<a href="skype:username?chat">Chat on Skype</a>
+```
+
+### 7. **Zoom (zoommtg:// Protocol)**
+
+Zoom allows you to generate deep links to join a Zoom meeting directly using the `zoommtg://` protocol.
+
+#### Example:
+```html
+<a href="zoommtg://zoom.us/join?confno=1234567890&pwd=abcd1234">Join Zoom Meeting</a>
+```
+- **Explanation**: Clicking this link opens the Zoom app and joins a meeting with the specified `confno` (meeting ID) and `pwd` (password).
+
+### 8. **Google Maps (google.com/maps Protocol)**
+
+You can use deep linking to open Google Maps with a specific location or address.
+
+#### Example:
+```html
+<a href="https://www.google.com/maps?q=1600+Amphitheatre+Parkway,+Mountain+View,+CA">View in Google Maps</a>
+```
+- **Explanation**: Clicking this link opens Google Maps and shows the location specified in the `q=` query string (`1600 Amphitheatre Parkway, Mountain View, CA`).
+
+For specific latitude/longitude coordinates:
+```html
+<a href="https://www.google.com/maps?q=37.7749,-122.4194">View San Francisco in Google Maps</a>
+```
+
+Alternatively, you can use the `google.navigation` scheme on Android to initiate navigation:
+```html
+<a href="google.navigation:q=1600+Amphitheatre+Parkway,+Mountain+View,+CA">Navigate with Google Maps</a>
+```
+
+### 9. **Apple Maps (maps.apple.com Protocol)**
+
+On iOS devices, you can use Apple Maps with the `maps.apple.com` URL scheme.
+
+#### Example:
+```html
+<a href="https://maps.apple.com/?q=1600+Amphitheatre+Parkway,+Mountain+View,+CA">View in Apple Maps</a>
+```
+- **Explanation**: This link opens Apple Maps with the specified location (`1600 Amphitheatre Parkway, Mountain View, CA`).
+
+For navigation:
+```html
+<a href="maps.apple.com/?daddr=1600+Amphitheatre+Parkway,+Mountain+View,+CA">Navigate with Apple Maps</a>
+```
+
+### 10. **Facebook Messenger (fb-messenger:// Protocol)**
+
+You can deep link directly to Facebook Messenger to start a conversation with a specific user.
+
+#### Example:
+```html
+<a href="fb-messenger://user-thread/username">Chat on Facebook Messenger</a>
+```
+- **Explanation**: This opens the Facebook Messenger app and starts a conversation with the user `username`.
+
+### 11. **Instagram (instagram:// Protocol)**
+
+You can link directly to an Instagram profile, post, or story using the `instagram://` scheme.
+
+#### Example:
+```html
+<a href="instagram://user?username=username">Visit Instagram Profile</a>
+```
+- **Explanation**: This opens the Instagram app and shows the profile of `username`.
+
+For a specific post:
+```html
+<a href="instagram://media?id=post_id">View Instagram Post</a>
+```
+
+### 12. **Twitter (twitter:// Protocol)**
+
+You can link to Twitter to open a specific profile or tweet.
+
+#### Example:
+```html
+<a href="twitter://user?screen_name=username">Visit Twitter Profile</a>
+```
+- **Explanation**: This opens the Twitter app and navigates to the `username` profile.
+
+To link to a specific tweet:
+```html
+<a href="https://twitter.com/user/status/1234567890">View Tweet</a>
+```
+
+### 13. **Spotify (spotify:// Protocol)**
+
+You can deep link directly to a song, playlist, or artist on the Spotify app using the `spotify://` protocol.
+
+#### Example:
+```html
+<a href="spotify://track/4uLU6hMCjMI75M1Z1QbWPr">Listen on Spotify</a>
+```
+- **Explanation**: Clicking this link will open the Spotify app and play the song with the given track ID (`4uLU6hMCjMI75M1Z1QbWPr`).
+
+For a playlist:
+```html
+<a href="spotify://playlist/37i9dQZF1DXcBWIGoYBM5M">Listen to Playlist</a>
+```
+
+---
+
+### Summary of Common Deep Links to Services:
+
+1. **Email**: `mailto:someone@example.com`
+2. **Phone Call**: `tel:+1234567890`
+3. **SMS/Text Message**: `sms:+1234567890?body=Hello%20there`
+4. **WhatsApp**: `https://wa.me/1234567890?text=Hello%20there`
+5. **Telegram**: `tg://resolve?domain=username`
+6. **Skype**: `skype:username?call` or `skype:username?chat`
+7. **Zoom**: `zoommtg://zoom.us/join?confno=1234567890&pwd=abcd1234`
+8. **Google Maps**: `https://www.google.com/maps?q=1600+Amphitheatre+Parkway,+Mountain+View,+CA`
+9. **Apple Maps**: `https://maps.apple.com/?q=1600+Amphitheatre+Parkway,+Mountain+View,+CA`
+10. **Facebook Messenger**: `fb-messenger://user-thread/username`
+11. **Instagram**: `instagram://user?username=username`
+12. **Twitter**: `twitter://user?screen_name=username`
+13. **Spotify**: `spotify://track/4uLU6hMCjMI75M1Z1QbWPr`
+
+By using these protocols, you can create deep links that open specific apps and services, enhancing the user experience and making your site more interactive. -->

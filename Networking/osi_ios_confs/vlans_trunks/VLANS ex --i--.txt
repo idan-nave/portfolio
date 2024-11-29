@@ -1,0 +1,61 @@
+vlan 10
+name Admin
+exi
+vlan 20
+name Accounts
+exi
+vlan 30
+name HR
+exi
+vlan 40
+name Voice
+exi
+vlan 99
+name Management
+exi
+vlan 100
+name Native
+
+SWA
+int vlan 99
+ip add 192.168.99.252 255.255.255.0
+
+SWB
+int f0/1
+swit mod acc
+swit acc vlan 10
+exi
+int f0/2
+swit mod acc
+swit acc vlan 20
+exi
+int f0/3
+swit mod acc
+swit acc vlan 30
+exi
+int vlan 99
+ip add 192.168.99.253 255.255.255.0
+
+SWC
+int f0/1
+swit mod acc
+swit acc vlan 10
+exi
+int f0/2
+swit mod acc
+swit acc vlan 20
+exi
+int f0/3
+swit mod acc
+swit acc vlan 30
+exi
+int f0/4
+swit mod acc
+swit acc vlan 10
+mls qos trust cos
+swit voice vlan 40
+exi
+int vlan 99
+ip add 192.168.99.254 255.255.255.0
+
+

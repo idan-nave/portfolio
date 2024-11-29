@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stddef.h": "c",
+        "stack.h": "c",
+        "time.h": "c"
+    }
+}

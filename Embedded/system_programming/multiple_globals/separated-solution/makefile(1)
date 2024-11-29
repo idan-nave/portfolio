@@ -1,0 +1,42 @@
+CC := gcc
+CFLAGS := -Wall -Wextra
+LDFLAGS := -Wl,-rpath=.
+
+all: link_at_loadtime.out
+
+link_at_loadtime.out: run.o libfoo.so
+	$(CC) $(LDFLAGS) -o $@ run.o -L. -lfoo
+
+libfoo.so: foo.o
+	$(CC) -shared -o $@ $< -fPIC
+
+run.o: run.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+foo.o: foo.c
+	$(CC) $(CFLAGS) -c -o $@ $< -fPIC
+
+mul_globals.o: mul_globals.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+libmul.a: mul_globals.o
+	ar rcs $@ $<
+
+clean:
+	rm -f link_at_loadtime.out libfoo.so run.o foo.o mul_globals.o libmul.a
+
+.PHONY: all clean
+
+################# makefile - description ################
+# $(OBJ_DIR)/%.o: This is the target pattern. It specifies that any object file in the OBJ_DIR directory can be generated using this rule. The % is a wildcard that matches any string.
+
+# $(SRC_DIR)/%.c: This is the prerequisite pattern. It specifies that the corresponding source file (with the same name but .c extension) in the SRC_DIR directory is needed to build the target.
+
+# $(CC) -c $(CFLAGS) $< -I$(HDR_DIR) -o $@: This is the recipe that defines how to build the target from the prerequisite. Here's what each part does:
+
+# $(CC): Expands to the compiler (gcc in this case).
+# -c: Indicates that the compiler should only compile and not link.
+# $(CFLAGS): Compiler flags specified earlier.
+# $<: Automatic variable representing the first prerequisite (source file).
+# -I$(HDR_DIR): Specifies the include directory.
+# -o $@: Automatic variable representing the target file (object file).

@@ -1,0 +1,12 @@
+interface vlan 10
+ip address 192.168.10.254 255.255.255.0
+exi
+interface vlan 20
+ip address 192.168.20.254 255.255.255.0
+exi
+interface vlan 30
+ip address 192.168.30.254 255.255.255.0
+exi
+interface vlan 99
+ip address 192.168.99.254 255.255.255.0
+exi

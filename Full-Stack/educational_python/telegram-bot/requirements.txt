@@ -1,0 +1,76 @@
+
+Create a Virtual Environment:
+python3 -m venv venv
+
+Source it:
+source venv/bin/activate
+
+install:
+$ python -m pip install python==3.x.x
+$ pip install telegram
+$ pip install python-telegram-bot
+
+in Telegram, run BotFather
+	using help menu:
+	/newbot : create and config
+	write down token to access the HTTP API:
+	XXXX:XXXXXXXXXXXXXXXXXX
+	/setcommands : config using syntax [for desired commands]:
+		start - Starts the bot
+		help - Provides help from banana100 bot
+		custom - This is a custom command
+	within a group, granting the bot admin permissions is required:
+		view group info > promote admin
+		note @bot_name when talking to it
+	
+	
+create project tree as follows:
+~/Documents/Bot$ tree
+.
+├── requirements.txt
+├── src
+│   ├── bot.py
+│   └── main.py
+└── venv
+
+run venv:
+source venv/bin/activate
+
+rum script:
+python3 src/main.py
+	Starting Bot...
+	Polling...
+	
+Telegram API porting:
+	https://my.telegram.org/auth
+
+	App api_id:
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	App api_hash:
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	App title:
+	Short name:
+
+	alphanumeric, 5-32 characters
+	Available MTProto servers
+	Test configuration:
+	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+	DC 2
+	Public keys:
+
+	-----BEGIN RSA PUBLIC KEY-----
+	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	-----END RSA PUBLIC KEY-----
+
+	Production configuration:
+	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+	DC 2
+	Public keys:
+
+	-----BEGIN RSA PUBLIC KEY-----
+	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	-----END RSA PUBLIC KEY-----
+
+

@@ -1,0 +1,27 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data)
+                .catch(err => console.error("Error loading component:", err));
+        }
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>loadComponent('header', 'header.html');</script>
+
+    <main>
+        <h1>Welcome to My Website</h1>
+        <p>Content goes here.</p>
+    </main>
+
+    <div id="footer"></div>
+    <script>loadComponent('footer', 'footer.html');</script>
+</body>
+</html>

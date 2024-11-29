@@ -1,0 +1,52 @@
+@import url('../css/global.css');
+
+h1,h2 {
+  margin: 0 0 1rem;
+}
+
+.events_hdr{
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Layout */
+.events_cont {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Events Grid */
+.events_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.event_card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.event_card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.event_card h3 {
+  margin: 0 0 0.5rem;
+}
+
+.event_card p {
+  font-size: 1.1rem;
+  color: #555;
+}

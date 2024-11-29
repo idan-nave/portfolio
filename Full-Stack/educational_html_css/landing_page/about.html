@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head id="about">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f4a261;
+            /* Change to a highlight color on hover */
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </body>
+
+    <body>
+        <h1> About </h1>
+
+        <label for="myInput">Search:</label>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for cars.." value="Tesla">
+        <button>Search</button>
+        <br>
+
+
+        <h2> we have Only 3 cars: </h1>
+
+            <ul class="image-list">
+                <li class="image-item">
+                    <img width="400" src="https://cdn.motor1.com/images/mgl/MkOP8Y/s1/new-tesla-model-s-rendering.webp"
+                        alt="Tesla Model S">
+                    <div class="image-description">This is a description for Tesla Model S</div>
+                </li>
+                <li class="image-item">
+                    <img src="https://via.placeholder.com/200" alt="Image 2">
+                    <div class="image-description">This is a description for Image 2</div>
+                </li>
+                <li class="image-item">
+                    <img src="https://via.placeholder.com/200" alt="Image 3">
+                    <div class="image-description">This is a description for Image 3</div>
+                </li>
+            </ul>
+            <br <p>This is a website about cool cars, created by me.</p>
+            <a href="#">Go to Top</a>
+
+
+
+            <span>Inliine Text, a lot of GIBERISSSHHH Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor corrupti ullam soluta sed alias reiciendis, suscipit dolore magnam? Architecto animi repellat id harum nisi explicabo nihil vero at fuga quibusdam.100</span>
+    </body>
+
+
+
+</html>

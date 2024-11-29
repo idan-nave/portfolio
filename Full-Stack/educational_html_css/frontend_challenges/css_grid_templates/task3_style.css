@@ -1,0 +1,81 @@
+* {
+    border: 2px solid rgb(0, 0, 0);
+}
+/* Design is Mobile-first,
+conditioned by media-querries for Tablet & Desktop */
+
+.flex {
+    display: grid;
+    /* align-items:  center; */
+    height: 80vh;
+    /* split ratio so both sides are auto,
+    and middle spans as much as remains */
+    grid-template-rows: repeat(2,auto) 1fr repeat(3,auto);
+    gap: 20px; 
+}
+
+div{
+    border: 1px solid lime;
+}
+
+.header{
+    background-color: grey;
+}
+.nav{
+    background-color: lightgrey;
+}
+.main{
+    background-color: lightblue;
+
+}
+.side{
+    background-color: lightpink;
+}
+.ads{
+    background-color: lightgreen;
+}
+.footer{
+    background-color: grey;
+}
+
+/* Tablet */
+@media  (width >= 768px ){
+    .flex{
+        grid-template-rows: repeat(2,auto) 1fr repeat(1,auto);
+        grid-template-columns: repeat(4,1fr);
+        grid-template-areas: 
+        "g_hdr g_hdr g_hdr g_hdr"
+        "g_nav g_nav g_nav g_nav"
+        "g_side g_main g_main g_main"
+        "g_ads g_foot g_foot g_foot"
+        ;
+    }
+    .header{grid-area: g_hdr;}
+    .nav{grid-area: g_nav;}
+    .main{grid-area: g_main;}
+    .side{grid-area: g_side;}
+    .ads{grid-area: g_ads;}
+    .footer{grid-area: g_foot;}
+}
+
+/* Desktop */
+@media  (width >= 1024px ){
+    .flex{
+        grid-template-rows: repeat(2,auto) 1fr repeat(1,auto);
+        grid-template-columns: repeat(5,1fr);
+        grid-template-areas: 
+        "g_hdr g_hdr g_hdr g_hdr g_hdr"
+        "g_side g_nav g_nav g_nav g_ads"
+        "g_side g_main g_main g_main g_ads"
+        "g_foot g_foot g_foot g_foot g_foot"
+        ;
+    }
+    .header{grid-area: g_hdr;}
+    .nav{grid-area: g_nav;}
+    .main{grid-area: g_main;}
+    .side{grid-area: g_side;}
+    .ads{grid-area: g_ads;}
+    .footer{grid-area: g_foot;}
+}
+
+/* shortcuts for vscode - gtc =  grid-template-columns*/

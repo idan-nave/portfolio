@@ -1,0 +1,46 @@
+* {
+    /* border: 2px solid red; */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#email {
+
+    border-radius: 10%;
+}
+
+#email:hover {
+    cursor: pointer;
+}
+
+#email:active {
+    border: 2px solid black;
+}
+
+#submit {
+    transition: 3s ease-in;
+    color: white;
+}
+
+#submit:hover {
+    cursor: pointer;
+    background-color: black;
+}

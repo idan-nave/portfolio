@@ -1,0 +1,141 @@
+#Compilation
+################################ C WORK-SHEETS ###########################
+
+##################### Work Sheet 4 - Strings ######################
+alias wss_d='gdb -tui $HOME/wd/c/ws4_strings/bin/debug/ws_strings.out'
+alias wss_dd='gdb $HOME/wd/c/ws4_strings/bin/debug/ws_strings.out $HOME/wd/c/ws4_strings/bin/debug/core'
+alias wss_r='$HOME/wd/c/ws4_strings/bin/debug/ws_strings.out'
+alias wss_c='gcc -g -ansi -I$HOME/wd/c/ws4_strings/include $HOME/wd/c/ws4_strings/src/String.c $HOME/wd/c/ws4_strings/test/TestString.c -o $HOME/wd/c/ws4_strings/bin/debug/ws_strings.out'
+alias wss_v='valgrind -s --leak-check=full --track-origins=yes $HOME/wd/c/ws4_strings/bin/debug/ws_strings.out' 
+
+##################### Work Sheet 4 - Excercises ###################
+alias ws4_d='gdb -tui $HOME/wd/c/ws4_strings/bin/debug/ws4.out'
+alias ws4_dd='gdb $HOME/wd/c/ws4_strings/bin/debug/ws4.out $HOME/wd/c/ws4_strings/bin/debug/core'
+alias ws4_r='$HOME/wd/c/ws4_strings/bin/debug/ws4.out'
+alias ws4_c='gcc -ansi -g $HOME/wd/c/ws4_strings/src/ws4_Exercises.c -o $HOME/wd/c/ws4_strings/bin/debug/ws4.out'
+alias ws4_v='valgrind -s --leak-check=full --track-origins=yes $HOME/wd/c/ws4_strings/bin/debug/ws4.out' 
+
+############################# Work Sheet 6 #######################
+alias ws6_c='gcc -g -ansi -I$HOME/wd/c/ws6_arrays/include $HsOME/wd/c/ws6_arrays/src/ArrPtrs.c $HOME/wd/c/ws6_arrays/test/Tst_ArrPtrs.c -o $HOME/wd/c/ws6_arrays/bin/debug/ws6.out'
+alias ws6_r='$HOME/wd/c/ws6_arrays/bin/debug/ws6.out'
+alias ws6_v='valgrind -s --leak-check=full --track-origins=yes $HOME/wd/c/ws6_arrays/bin/debug/ws6.out' 
+
+############################# Work Sheet 7 #######################
+alias ws7_c='gcc -g -ansi -I$HOME/wd/c/ws7_funcs/include $HOME/wd/c/ws7_funcs/src/ws7_funcs.c $HOME/wd/c/ws7_funcs/test/Test_ws7_funcs.c -o $HOME/wd/c/ws7_funcs/bin/debug/ws7.out'
+alias ws7_r='$HOME/wd/c/ws7_funcs/bin/debug/ws7.out'
+alias ws7_v='valgrind -s --leak-check=full --track-origins=yes $HOME/wd/c/ws7_funcs/bin/debug/ws7.out' 
+############################# Work Sheet 7 - REVIEW #######################
+alias rws7_c='gcc -g -pedantic-errors -Wall -Wextra -ansi -I$HOME/wd/c/ws7_funcs/code_review $HOME/wd/c/ws7_funcs/code_review/ws7_funcs.c $HOME/wd/c/ws7_funcs/code_review/Test_ws7_funcs.c -o $HOME/wd/c/ws7_funcs/bin/debug/ws7_reviewed.out'
+alias rws7_r='$HOME/wd/c/ws7_funcs/bin/debug/ws7_reviewed.out'
+alias rws7_v='valgrind -s --leak-check=full --track-origins=yes $HOME/wd/c/ws7_funcs/bin/debug/ws7_reviewed.out' 
+
+############################# Work Sheet 8 #######################
+alias ws8_c='gcc -g -pedantic-errors -Wall -Wextra -ansi -I$HOME/wd/c/ws8_files/include $HOME/wd/c/ws8_files/src/ws8_files.c $HOME/wd/c/ws8_files/test/Test_ws8_files.c -o $HOME/wd/c/ws8_files/bin/debug/ws8.out'
+alias ws8_r='$HOME/wd/c/ws8_files/bin/debug/ws8.out'
+alias ws8_v='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes $HOME/wd/c/ws8_files/bin/debug/ws8.out' 
+
+############################# Work Sheet 9 #######################
+alias ws9_c='gcc -g -ansi -I$HOME/wd/c/ws9_bitwise/include $HOME/wd/c/ws9_bitwise/src/ws9_bitwise.c $HOME/wd/c/ws9_bitwise/test/Test_ws9_bitwise.c $HOME/wd/c/ws9_bitwise/test/UI_ws9_bitwise.c -o $HOME/wd/c/ws9_bitwise/bin/debug/ws9.out -lm'
+alias ws9_r='$HOME/wd/c/ws9_bitwise/bin/debug/ws9.out'
+alias ws9_v='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes $HOME/wd/c/ws9_bitwise/bin/debug/ws9.out' 
+
+############################# No Header Compilation #######################
+alias ws_d='gdb $HOME/wd/c/ws6_arrays/bin/debug/tst.out'
+alias ws_r='$HOME/wd/c/ws6_arrays/bin/debug/tst.out'
+alias ws_c='gcc -g -ansi $HOME/wd/c/ws6_arrays/src/ArrPtrs.c -o $HOME/wd/c/ws6_arrays/bin/debug/tst.out'
+alias ws_v='valgrind -s --leak-check=full --track-origins=yes $HOME/wd/c/ws6_arrays/bin/debug/tst.out' 
+
+############################# Work Sheet 10 #######################
+alias ws10_c='gcc -g -c -ansi -I$HOME/wd/c/ws10_build/include $HOME/wd/c/ws10_build/src/ws10_build.c $HOME/wd/c/ws10_build/test/Test_ws10_build.c'
+alias ws10_f='gcc -fcommon -c -g -ansi -I$HOME/wd/c/ws10_build/include $HOME/wd/c/ws10_build/src/ws10_build.c $HOME/wd/c/ws10_build/test/Test_ws10_build.c'
+alias ws10_fn='gcc -fno-common -c -g -ansi -I$HOME/wd/c/ws10_build/include $HOME/wd/c/ws10_build/src/ws10_build.c $HOME/wd/c/ws10_build/test/Test_ws10_build.c'
+alias ws10_c='gcc -g -ansi -I$HOME/wd/c/ws10_build/include $HOME/wd/c/ws10_build/src/ws10_build.c $HOME/wd/c/ws10_build/test/Test_ws10_build.c -o  $HOME/wd/c/ws10_build/bin/ws10.out'
+alias ws10_r='$HOME/wd/c/ws10_build/bin/ws10.out'
+
+############################# Work Sheet 11 #######################
+alias ws11_c='gcc -g -pedantic-errors -Wall -Wextra -ansi -I$HOME/wd/c/ws11_structs/include $HOME/wd/c/ws11_structs/src/ws11_structs.c $HOME/wd/c/ws11_structs/test/Test_ws11_structs.c -o $HOME/wd/c/ws11_structs/bin/debug/ws11.out'
+alias ws11_d='gdb -tui $HOME/wd/c/ws11_structs/bin/debug/ws11.out'
+alias ws11_r='$HOME/wd/c/ws11_structs/bin/debug/ws11.out'
+alias ws11_v='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes $HOME/wd/c/ws11_structs/bin/debug/ws11.out' 
+
+############################# Work Sheet 12 #######################
+alias ws12_c='gcc -g -pedantic-errors -Wall -Wextra -ansi -I$HOME/wd/c/ws12_serialization/include $HOME/wd/c/ws12_serialization/src/ws12_serialization.c $HOME/wd/c/ws12_serialization/test/Test_ws12_serialization.c -o $HOME/wd/c/ws12_serialization/bin/debug/ws12.out'
+alias ws12_d='gdb -tui $HOME/wd/c/ws12_serialization/bin/debug/ws12.out'
+alias ws12_r='$HOME/wd/c/ws12_serialization/bin/debug/ws12.out'
+alias ws12_v='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes $HOME/wd/c/ws12_serialization/bin/debug/ws12.out' 
+
+############################# Work Sheet 13 #######################
+alias ws13_c='gcc -g -pedantic-errors -Wall -Wextra -ansi -I$HOME/wd/c/ws13_WBO/include $HOME/wd/c/ws13_WBO/src/ws13_WBO.c $HOME/wd/c/ws13_WBO/test/Test_ws13_WBO.c -o $HOME/wd/c/ws13_WBO/bin/debug/ws13.out'
+alias ws13_o='gcc -c -g -pedantic-errors -Wall -Wextra -I$HOME/wd/c/ws13_WBO/include $HOME/wd/c/ws13_WBO/src/ws13_WBO.c -o $HOME/wd/c/ws13_WBO/bin/release/ws13_WBO.o'
+alias ws13_a='ar rcs $HOME/wd/c/ws13_WBO/bin/release/ws13_WBO.a $HOME/wd/c/ws13_WBO/bin/release/ws13_WBO.o'
+alias ws13_d='gdb -tui $HOME/wd/c/ws13_WBO/bin/debug/ws13.out'
+alias ws13_r='$HOME/wd/c/ws13_WBO/bin/debug/ws13.out'
+alias ws13_v='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes $HOME/wd/c/ws13_WBO/bin/debug/ws13.out' 
+
+############################# Work Sheet 14 #######################
+alias ws14_c='gcc -g -pedantic-errors -Wall -Wextra -ansi -I$HOME/wd/c/ws14_atoi_itoa/include $HOME/wd/c/ws14_atoi_itoa/src/ws14_atoi_itoa.c $HOME/wd/c/ws14_atoi_itoa/test/Test_ws14_atoi_itoa.c -o $HOME/wd/c/ws14_atoi_itoa/bin/debug/ws14.out -lm'
+alias ws14_d='gdb -tui $HOME/wd/c/ws14_atoi_itoa/bin/debug/ws14.out'
+alias ws14_r='$HOME/wd/c/ws14_atoi_itoa/bin/debug/ws14.out'
+alias ws14_v='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes $HOME/wd/c/ws14_atoi_itoa/bin/debug/ws14.out' 
+
+################################ D.S. WORK-SHEETS ###########################
+
+############################# Work Sheet 3 #######################
+alias ds3_c='gcc -g -pedantic-errors -Wall -Wextra -ansi -I$HOME/wd/ds/ws3_bit_array/include $HOME/wd/ds/ws3_bit_array/src/BitArray.c $HOME/wd/ds/ws3_bit_array/test/Test_BitArray.c -o $HOME/wd/ds/ws3_bit_array/bin/debug/ds3.out -lm'
+alias ds3_d='gdb -tui $HOME/wd/ds/ws3_bit_array/bin/debug/ds3.out'
+alias ds3_r='$HOME/wd/ds/ws3_bit_array/bin/debug/ds3.out'
+alias ds3_v='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes $HOME/wd/ds/ws3_bit_array/bin/debug/ds3.out' 
+
+############################# Work Sheet 4 #######################
+alias ds4_c='gcc -g -pedantic-errors -Wall -Wextra -ansi -I$HOME/wd/ds/ws4_stack/include $HOME/wd/ds/ws4_stack/src/ws4_stack.c $HOME/wd/ds/ws4_stack/test/Test_ws4_stack.c -o $HOME/wd/ds/ws4_stack/bin/debug/ds4.out -lm'
+alias ds4_d='gdb -tui $HOME/wd/ds/ws4_stack/bin/debug/ds4.out'
+alias ds4_r='$HOME/wd/ds/ws4_stack/bin/debug/ds4.out'
+alias ds4_v='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes $HOME/wd/ds/ws4_stack/bin/debug/ds4.out' 
+
+############################# Work Sheet 5 #######################
+alias ds5_c='gcc -g -pedantic-errors -Wall -Wextra -ansi -I$HOME/wd/ds/ws5_dvector/include $HOME/wd/ds/ws5_dvector/src/ws5_dvector.c $HOME/wd/ds/ws5_dvector/test/Test_ws5_dvector.c -o $HOME/wd/ds/ws5_dvector/bin/debug/ds5.out -lm'
+alias ds5_d='gdb -tui $HOME/wd/ds/ws5_dvector/bin/debug/ds5.out'
+alias ds5_r='$HOME/wd/ds/ws5_dvector/bin/debug/ds5.out'
+alias ds5_v='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes $HOME/wd/ds/ws5_dvector/bin/debug/ds5.out' 
+
+############################# Compilation Templates #######################
+#gcc compuliation aliases:c89, c99, debug mode, release mode
+alias gd='gcc -ansi -pedantic-errors -Wall -Wextra -g'
+alias gc='gcc -ansi -pedantic-errors -Wall -Wextra -DNDBUG -03'
+alias gc='gcc -std=c99 -pedantic-errors -Wall -Wextra -g'
+alias gc='gcc -std=c99 -pedantic-errors -Wall -Wextra -DNDBUG -03'
+#
+############################# Valgrind Templates #######################
+alias vlg='valgrind --leak-check=yes --track-origins=yes' 
+alias svlg='valgrind -s --leak-check=full --track-origins=yes' 
+
+alias ws4_v='valgrind -s --leak-check=full --track-origins=yes $HOME/wd/c/ws4_strings/bin/debug/tst.out' 
+alias wss_v='valgrind -s --leak-check=full --track-origins=yes $HOME/wd/c/ws4_strings/bin/debug/tst_str.out' 
+
+# Delete all instances of specific file in a folder:
+# find /path/to/folder -type f -name "dummy.md" -delete
+
+############################ Static Library Creation #######################
+#Create object files- Compile each of your C source files containing the API 
+#implementation into separate object files 
+#	gcc -c api_file1.c -o api_file1.o
+#	gcc -c api_file2.c -o api_file2.o
+#
+#Create the static library- using the ar command (archive utility)
+#(rcs) creates a new static library named libyourapi.a, inserts the object files
+#into the library, and creates an index for faster symbol access.
+#	ar rcs libyourapi.a api_file1.o api_file2.o
+#
+#Verify the library creation-
+#	ar t libyourapi.a
+#
+#Link your library- Now that you have the static library file, it can be linked
+#to any application during compilation to use the functions and data structures
+#provided by your API-
+#	gcc -o your_app main.c -L/path/to/library -lyourapi
+#
+#Replace main.c with the name of your application's main source file,
+#and /path/to/library with the actual path to the directory containing
+#libyourapi.a or yourapi.lib.
+#By using the -lyourapi flag, you are telling the linker to search for those 
+#definitions in the specified static library file.

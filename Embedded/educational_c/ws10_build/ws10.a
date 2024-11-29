@@ -1,0 +1,59 @@
+!<arch>
+ws10_build.c/   0           0     0     644     817       `
+/********************************** ws10_build.c  ******************************/
+/*
+  Name: HRD 32
+  Project: Work Sheet 10 - Build Process
+  Reviewer: ???
+  Date: 24/07/23
+  Version: 1.0
+*/
+  
+/******************************** LIBRARIES  **********************************/
+#include <assert.h> 		/* For input validation */
+#include <stddef.h>  		/* For size_t type*/
+#include <stdio.h>  		/* For standard input/output */
+#include <stdlib.h> 		/* For memory allocation */
+#include <string.h>             /* For string manipulation */
+
+#include "ws10_build.h" 		/* For team's API*/
+
+#define EOS '\0'		/* For end of strings
+
+/********************************** TypeDefs  *********************************/
+/*
+int X = 0;
+*/
+
+int x6=0;
+
+
+/************************************** Main **********************************/
+
+
+ws10_build.h/   0           0     0     644     604       `
+/********************************** ws10_build.h  ******************************/
+/*
+  Name: HRD 32
+  Project: Work Sheet 10 - Build Process
+  Reviewer: ???
+  Date: 24/07/23
+  Version: 1.0
+*/
+  
+/******************************** LIBRARIES  **********************************/
+
+#ifndef __WS10_BUILD_H__
+#define __WS10_BUILD_H__
+
+#include <stddef.h>  /*Using size_t in header file*/
+
+/******************************* DECLARATIONS *********************************/
+
+/*Function Description*/
+
+
+
+/******************************************************************************/
+
+#endif /*(__WS10_BUILD_H__)*/
