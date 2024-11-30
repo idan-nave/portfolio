@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Create the video element inside the monitor box
     const video = document.createElement("video");
-    video.src = "media/videos/monitor.webm";
+    video.src = "media/videos/monitor.mp4";
     video.loop = true;
     video.autoplay = true;
     video.muted = true;
@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add buttons dynamically
         buttonCoordinates.forEach((coord) => {
             const button = document.createElement("div");
+            button.id = coord.id; // Set the ID dynamically
             button.className = `button ${coord.type}`;
             button.style.left = `${cockpitRect.left + coord.x * scaleX}px`;
             button.style.top = `${cockpitRect.top + coord.y * scaleY}px`;
@@ -93,9 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const assignFunctionality = () => {
         buttonCoordinates.forEach(({ id }) => {
             const button = document.getElementById(id);
-
-            if (!button) return;
-
+    
+            if (!button) return; // Skip if the button is not found
+    
+            // Assign functionality based on the button's ID
             switch (id) {
                 case "control_home":
                     button.addEventListener("click", controlHome);
@@ -137,9 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     };
-
+    
     // Adjust positions on load and resize
     adjustButtonPositions();
     assignFunctionality();
+    window.addEventListener("resize", adjustButtonPositions);
 
 });

@@ -1,0 +1,23 @@
+div {
+    display: flex;
+    flex-direction: column;
+    font-size: 2em;
+    align-items: center; /* Center-aligns the items horizontally */
+    gap: 10px; /* Adds space between items */
+    margin: 20px; /* Optional: Add some spacing around the container */
+}
+
+label, select, img {
+    width: 600px; /* Optional: Set a consistent width */
+    text-align: center;
+    font-size: 2em;
+
+}
+
+img {
+    max-width: 100%; /* Ensures the image fits within the set width */
+    height: auto;
+    border: 1px solid #ccc; /* Optional: Add a border */
+    border-radius: 5px; /* Optional: Rounded corners */
+
+}

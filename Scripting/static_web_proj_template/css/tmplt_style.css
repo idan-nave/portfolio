@@ -1,0 +1,141 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+/* Header styles */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main styles */
+main {
+    padding: 2rem;
+}
+
+section {
+    margin: 2rem 0;
+}
+
+.service {
+    background: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin: 1rem 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+button {
+    padding: 10px 15px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#gallery {
+    margin-top: 30px;
+}
+
+.image-container img {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+.highlight {
+    background-color: yellow; /* Highlight color on hover */
+    transition: background-color 0.3s ease;
+}
+
+/* Grid Section */
+#grid-gallery {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* Flexible columns */
+    grid-auto-flow: row;
+    /* Ensures items stay in a single row */
+    gap: 1rem;
+    /* Spacing between grid items */
+    max-width: calc(150px * 6);
+    /* Dynamically calculate width for 6 images */
+    margin: 0 auto;
+    /* Center the grid container */
+    overflow-x: auto;
+    /* Allow horizontal scrolling if content overflows */
+}
+
+
+.grid-container img {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox Section */
+#flex-gallery {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: calc(150px * 6);
+    /* Dynamically calculate width for 6 images */
+    margin: 0 auto;
+    /* Center the flex container */
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.flex-container img {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Footer styles */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}

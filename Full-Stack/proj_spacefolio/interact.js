@@ -1,5 +1,11 @@
 /* interact.js */
 
+export const contentOverlay = document.getElementById('content-overlay');
+
+export const updateDynamicContent = (overlayContent) => {
+   // Inject the overlay content
+   contentOverlay.innerHTML = overlayContent || '';
+};
 
 // Define the functionalities for each button
 export const controlHome = () => {
@@ -7,7 +13,9 @@ export const controlHome = () => {
 };
 
 export const shopOnline = () => {
-   //
+   updateDynamicContent({
+            overlayContent: `<iframe src="https://google.com" style="width: 100%; height: 80vh; border: none;"></iframe>`
+         });
 };
 
 export const shieldToggle = () => {
@@ -58,7 +66,12 @@ export const timeTravel = () => {
 };
 
 export const destroyEarth = () => {
-   // <source src="media/videos/earth.mp4" type="video/mp4">
+   // Select the Earth video element using its class
+   const video = document.querySelector(".background-video");
+   video.src = "media/videos/destroy_earth.mp4";
+   video.loop = false;
+   video.autoplay = true;
+   video.muted = true;
 };
 
 export const destroySelf = () => {
@@ -86,3 +99,19 @@ export const srcCode = () => {
    //
 };
 // Add more functions as needed...
+
+
+
+
+// Example button handlers
+// export const showPDF = () => {
+//    updateDynamicContent({
+//       overlayContent: `<iframe src="media/pdfs/example.pdf" style="width: 100%; height: 80vh; border: none;"></iframe>`
+//    });
+// };
+
+// export const showWebsite = () => {
+//    updateDynamicContent({
+//       overlayContent: `<iframe src="https://example.com" style="width: 100%; height: 80vh; border: none;"></iframe>`
+//    });
+// };

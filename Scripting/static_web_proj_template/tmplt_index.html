@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Web Template</title>
+    <link rel="stylesheet" href="css/tmplt_style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the Webpage</h1>
+        <button id="toggleBtn">Click to Toggle Color</button>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Welcome to My Website</h1>
+            <p>Your static web template starts here.</p>
+        </section>
+
+        <section id="intro">
+            <h2>Introduction</h2>
+            <p id="description">This is a basic webpage demonstrating JavaScript interaction with HTML elements.</p>
+            <button id="changeTextBtn">Change Text</button>
+        </section>
+
+        <!-- API  Section -->
+        <section>
+            <h1>Select a Title</h1>
+            <!-- Dropdown list for Titles -->
+            <select id="images-titles-dropdown">
+                <option value="">Loading...</option> <!-- Default loading option -->
+            </select>
+
+            <script src="script.js"></script>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Services</h2>
+            <div class="service">
+                <h3>Web Design</h3>
+                <p>Creating beautiful and functional websites.</p>
+            </div>
+            <div class="service">
+                <h3>Development</h3>
+                <p>Building robust and scalable web applications.</p>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            </div>
+            <button id="changeImagesBtn">Change Image Sources</button>
+        </section>
+
+        <!-- Grid Section -->
+        <section id="grid-gallery">
+            <h2>Grid Gallery</h2>
+            <div class="grid-container">
+                <img src="media/placeholder.jpg" alt="Placeholder 1">
+                <img src="media/placeholder.jpg" alt="Placeholder 2">
+                <img src="media/placeholder.jpg" alt="Placeholder 3">
+                <img src="media/placeholder.jpg" alt="Placeholder 4">
+                <img src="media/placeholder.jpg" alt="Placeholder 5">
+                <img src="media/placeholder.jpg" alt="Placeholder 6">
+            </div>
+        </section>
+
+        <!-- Flex Section -->
+        <section id="flex-gallery">
+            <h2>Flexbox Gallery</h2>
+            <div class="flex-container">
+                <img src="media/placeholder.jpg" alt="Placeholder 1">
+                <img src="media/placeholder.jpg" alt="Placeholder 2">
+                <img src="media/placeholder.jpg" alt="Placeholder 3">
+                <img src="media/placeholder.jpg" alt="Placeholder 4">
+                <img src="media/placeholder.jpg" alt="Placeholder 5">
+                <img src="media/placeholder.jpg" alt="Placeholder 6">
+                <img src="media/placeholder.jpg" alt="Placeholder 7">
+                <img src="media/placeholder.jpg" alt="Placeholder 8">
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; My Webpage. All rights reserved.</p>
+    </footer>
+
+    <script src="js/tmplt_front.js"></script>
+    <script src="js/tmplt_api.js"></script>
+</body>
+
+</html>
