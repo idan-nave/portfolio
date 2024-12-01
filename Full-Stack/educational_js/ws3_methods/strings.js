@@ -62,17 +62,7 @@ reverseString(string)
 // property name, and returns an array of the values of the
 // specied property for each object.
 
-const books = [ { title: 'The Great Gatsby', pages: 180 }, { title: 'To Kill
-    a Mockingbird', pages: 280 }, { title: 'Pride and Prejudice', pages: 150
-    } ]; console.log(getPropertyValues(books, 'pages')); / Output: [180,
-    280, 150]
-
-
-const books = [
-    { title: 'The Great Gatsby', pages: 180 },
-    { title: 'To Killa Mockingbird', pages: 280 },
-    { title: 'Pride and Prejudice', pages: 150 }
-];
+const books = [ { title: 'The Great Gatsby', pages: 180 }, { title: 'To Kill a Mockingbird', pages: 280 }, { title: 'Pride and Prejudice', pages: 150 } ];
 
 function getPropertyValues(arr, property) {
     const newArr = [];
@@ -82,14 +72,12 @@ function getPropertyValues(arr, property) {
     return newArr
 }
 
-console.log(getPropertyValues(books, ''));
+console.log(getPropertyValues(books, 'pages'));
 
 
 // 3. Medium: Write a function that takes in a string and returns an
 // array of all the words in the string.
-
-stringToArray("hello world, I am Armadillo") //output
-["hello", "world", "I", "am", "Armadillo"]
+// stringToArray("hello world, I am Armadillo") //output["hello", "world", "I", "am", "Armadillo"]
 
 function getSentenceWords(string) {
     const newString = string.replace(',', '').split(' ')
@@ -114,7 +102,7 @@ for (const key in obj) {
 // For example,
 // removeVowels("hello") //output hll.
 
-
+// ALTERNATIVE #1
 function removeVowels(str) {
     const arr = str.split('');
     const func = (char, index) => {
@@ -125,6 +113,11 @@ function removeVowels(str) {
     }
     const filteredArray = arr.filter(func)
     return filteredArray.join('')
+}
+
+// ALTERNATIVE #2
+function removeVowels(str) {
+    return str.replace(/[aeiou]/gi, ''); // Matches all vowels (case-insensitive) and replaces them with an empty string
 }
 
 console.log(removeVowels('hello'))
@@ -331,3 +324,105 @@ console.log("  Hello World  ".trim()); // Output: 'Hello World'
 
 // 25. valueOf()
 console.log(str.valueOf()); // Output: 'Hello World' (string primitive value)
+
+// ################################# REGEX EXAMPLES ######################################
+
+// 1. Check if a String Contains Only Numbers
+function isNumeric(str) {
+    return /^\d+$/.test(str);
+}
+console.log(isNumeric("12345")); // true
+console.log(isNumeric("123a"));  // false
+
+// 2. Validate an Email Address
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+console.log(isValidEmail("test@example.com")); // true
+console.log(isValidEmail("test@@example.com")); // false
+
+// 3. Extract All Numbers from a String
+function extractNumbers(str) {
+    return str.match(/\d+/g);
+}
+console.log(extractNumbers("abc123xyz456")); // ["123", "456"]
+
+// 4. Replace Multiple Whitespace Characters with a Single Space
+function normalizeWhitespace(str) {
+    return str.replace(/\s+/g, ' ');
+}
+console.log(normalizeWhitespace("This   is  a   test")); // "This is a test"
+
+// 5. Remove All Non-Alphanumeric Characters
+function removeNonAlphanumeric(str) {
+    return str.replace(/[^a-zA-Z0-9]/g, '');
+}
+console.log(removeNonAlphanumeric("Hello, World!123")); // "HelloWorld123"
+
+// 6. Check if a String is a Valid Hex Color Code
+function isValidHex(color) {
+    return /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(color);
+}
+console.log(isValidHex("#fff"));   // true
+console.log(isValidHex("#123abc"));// true
+console.log(isValidHex("#123abz"));// false
+
+// 7. Match All Words in a String
+function getWords(str) {
+    return str.match(/\b\w+\b/g);
+}
+console.log(getWords("Hello, world! How are you?")); // ["Hello", "world", "How", "are", "you"]
+
+// 8. Validate a Phone Number
+function isValidPhoneNumber(phone) {
+    return /^\+?\d{1,3}?[-.\s]?\(?\d{1,4}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(phone);
+}
+console.log(isValidPhoneNumber("+1-800-555-1234")); // true
+console.log(isValidPhoneNumber("123-456-7890"));    // true
+console.log(isValidPhoneNumber("123-45-678"));      // false
+
+// 9. Find and Highlight All URLs in a Text
+function highlightURLs(text) {
+    return text.replace(/https?:\/\/[^\s]+/g, '<a href="$&">$&</a>');
+}
+console.log(highlightURLs("Visit https://example.com and http://test.com"));
+// "Visit <a href="https://example.com">https://example.com</a> and <a href="http://test.com">http://test.com</a>"
+
+// 10. Validate a Password
+function isValidPassword(password) {
+    return /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
+}
+console.log(isValidPassword("StrongP@ss1")); // true
+console.log(isValidPassword("weakpass"));   // false
+
+// 11. Find All Dates in `YYYY-MM-DD` Format
+function findDates(str) {
+    return str.match(/\b\d{4}-\d{2}-\d{2}\b/g);
+}
+console.log(findDates("Today is 2023-11-01, yesterday was 2023-10-31.")); 
+// ["2023-11-01", "2023-10-31"]
+
+// 12. Remove HTML Tags from a String
+function stripHTMLTags(str) {
+    return str.replace(/<\/?[^>]+(>|$)/g, '');
+}
+console.log(stripHTMLTags("<p>Hello <strong>World</strong></p>")); // "Hello World"
+
+// 13. Find All Capitalized Words
+function findCapitalizedWords(str) {
+    return str.match(/\b[A-Z][a-z]*\b/g);
+}
+console.log(findCapitalizedWords("Hello World, How Are You?")); 
+// ["Hello", "World", "How", "Are", "You"]
+
+// 14. Split a CamelCase String into Words
+function splitCamelCase(str) {
+    return str.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+console.log(splitCamelCase("camelCaseString")); // "camel Case String"
+
+// 15. Count the Number of Vowels in a String
+function countVowels(str) {
+    return (str.match(/[aeiou]/gi) || []).length;
+}
+console.log(countVowels("This is a test sentence.")); // 6
