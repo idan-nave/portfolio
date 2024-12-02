@@ -457,6 +457,26 @@ function is_array(input) {
   console.log(sumArrays(array1, array2)); // Output: [4, 5, 8, 10, 12, 13]
   
 
+
+// 8. Goal: Combine multiple arrays into one using the spread operator. . 
+  let array1 = [1, 2]; 
+  let array2 = [3, 4]; 
+  let combined = [...array1, ...array2];
+
+
+// 9. function rmi(i, arr) {
+    // Remove the element at index `i` and return the modified array
+    function rmi(i, arr) {
+        // Remove the element at index `i` and return the modified array
+        return arr.filter((_, idx) => idx !== i);
+    }
+    
+    // Example usage
+    const originalArray = [10, 20, 30, 40, 50];
+    const newArray = rmi(2, originalArray); // Remove element at index 2
+    console.log(newArray); // Output: [10, 20, 40, 50]
+    
+
 // ################################# ARRAY CHEATSHEET ######################################
 
 // 1. concat()
@@ -489,6 +509,9 @@ console.log(arr6.fill(0)); // Output: [0, 0, 0, 0]
 // 7. filter()
 const arr7 = [1, 2, 3, 4, 5];
 console.log(arr7.filter(n => n > 2)); // Output: [3, 4, 5]
+
+// Combine filtering and mapping into a single operation
+const arr7m = arr.filter(n => n > 2);
 
 // 8. find()
 const arr8 = [1, 2, 3, 4];

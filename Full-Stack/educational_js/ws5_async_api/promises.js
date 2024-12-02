@@ -1,220 +1,98 @@
-// setTimeout(() => {
-//     console.log('delay');
-// }, 1 * 1000);
-// console.log('hello');
-// console.log('world');
-
-// function func() {
-
-// }
-
-// const func = () => {
-
-// }
-
-// () => {}
+//######################## Promises ########################
 
 
-// let x = 5
-// x = () => console.log('function is value');
-// x()
-// x = 3
+//######################## Example 1: Handling Promises ########################
 
-// function bigFunc(callBack) {
-//     callBack()
-// }
-
-// bigFunc(() => {console.log('call back function')})
-
-// [1,2,3].map((num) => num * 2)
-
-// function returnFunc() {
-//     console.log('big function only');
-//     return () => console.log('returned function');
-// }
-
-const x = returnFunc();
-x()
-const username = 'nitay'
+// Demonstrates creating and using Promises for login and fetching a photo.
+const username = 'nitay';
 
 const login = new Promise((resolve, reject) => {
     if (username === 'nitay') {
-        resolve('hello nitay!')
+        resolve('Hello, Nitay!'); // Resolved if the username matches
+    } else {
+        reject('Incorrect username'); // Rejected if the username does not match
     }
-    else {
-        reject('Incorrect username')
-    }
-})
+});
 
 const getPhoto = new Promise((resolve, reject) => {
-    // resolve('picture')
-    // reject('couldnt get photo')
-})
+    // Uncomment resolve or reject to test each behavior
+    // resolve('Photo fetched successfully!');
+    reject('Couldn’t fetch the photo.');
+});
 
+// Chain Promises with .then() and handle errors with .catch()
 login
-    .then((data) => {
-        console.log(data);
-        return getPhoto
+    .then((message) => {
+        console.log(message); // Output: Hello, Nitay!
+        return getPhoto; // Returns the next Promise in the chain
     })
-    .then((photoData) => console.log(photoData))
-    .catch((err) => {
-        console.log(err)
+    .then((photoMessage) => {
+        console.log(photoMessage); // Logs photo message if resolved
     })
-    .then(() => { })
-    .catch(() => { })
+    .catch((error) => {
+        console.log('Error:', error); // Catches errors from login or getPhoto
+    });
 
-async function func() {
-    try {
-        const message = await login;
-        console.log(message);
+//######################## Example 2: Fetch API with Promises ########################
 
-    }
-    catch (err) {
-        console.log(err);
-    }
-}
-console.log(func());
-
+// Demonstrates fetching user data from an API using .then() chaining.
 fetch('https://jsonplaceholder.typicode.com/users')
-    .then(data => data.json())
-    .then(jsonData => {
-        jsonData.forEach((value) => {
-            console.log(value.name)
-        })
+    .then((response) => response.json()) // Converts response to JSON
+    .then((users) => {
+        users.forEach((user) => {
+            console.log(user.name); // Logs each user's name
+        });
     })
-    .catch(err => {
-        console.log(err);
-    })
+    .catch((error) => {
+        console.log('Fetch Error:', error); // Handles fetch errors
+    });
 
-async function pull() {
-    try {
-        const data = await fetch('https://jsonplaceholder.typicode.com/users');
-        const jsonData = await data.json();
-        jsonData.forEach(value => {
-            console.log(value.name);
-        })
+//######################## Example 3: Async Array Processing ########################
 
-        const obj = {
-            userId: 'hello'
+// Goal: Create a function that processes values in an array based on certain conditions.
+// 1. For each number in the array, determine if it is even or odd.
+// 2. Create a new array with strings describing the original numbers (e.g., "2 is even").
+// 3. Implement an asynchronous function to simulate processing time.
+
+
+    async function describeNumbersAsync(numbers) {
+        const result = [];
+        for (const num of numbers) {
+            await delay(500); // Simulate processing time (500ms delay)
+            if (num % 2 === 0) {
+                result.push(`${num} is even`);
+            } else {
+                result.push(`${num} is odd`);
+            }
         }
-        const arr = [1, 2, 3, 4]
-        const filteredArr = arr.filter((value) =>  value.userId === userId);
-        filteredArr = [3, 4]
-    }
-    catch (err) {
-        console.log(err);
+        return result;
     }
 
-}
+//######################## Example 4:  Array Processor Promise, Resolve ########################
 
-pull()
-
-// Create a function that receives a parameter of an id and
-// fetches from https://jsonplaceholder.typicode.com/posts
-// and logs all posts by that userId to the console
-
-async function posts(id) {
-    try {
-        const data = await fetch('https://jsonplaceholder.typicode.com/posts');
-        const jsonData = await data.json();
-        const filteredData = jsonData.filter((post) => {
-            return post.userId === id
-        })
-    }
-    catch(err) {
-console.log(err)
-    }
-}
-
-posts(0)
+// The function will iterate through the array and apply the following rules: If the number is even, add it to a new array; if it is odd, skip it .
+// Once you process the entire array, return the new array containing only the even numbers .
+// Additionally, implement an asynchronous function that simulates a delay using setTimeout,
+// allowing the processed result to be displayed after a specified time. . 
 
 
-// Create a function that returns all comments from
-// https://jsonplaceholder.typicode.com/comments
-// whose email address ends with '.net'
-
-async function commentsWithEmail() {
-    try {
-        const data = await fetch('https://jsonplaceholder.typicode.com/comments');
-        const jsonData = await data.json();
-        const filteredEmails = jsonData.filter((value) => {
-            return value.email.endsWith('.net')
-        })
-        filteredEmails.forEach((value) => {
-            console.log(value);
-        })
-    }
-    catch (err) {
-        console.log(err);
-    }
-}
-
-commentsWithEmail()
-
-// Promise Example
-
-
-setInterval(() => {
-    console.log('hello');
-
-}, 1 * 1000);
-
-console.log('world');
-const x = true;
-const resolvePromise = Promise.resolve('wow');
-const promise = new Promise((resolve, reject) => {
-    if (x === true) {
-        resolve('hello')
-    }
-    reject('x was not true')
-})
-
-
-promise
-    .then((data) => {
-        console.log(data);
-        return resolvePromise
-    })
-    .then(otherData => {
-        console.log(otherData);
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-
-fetch('https://jsonplaceholder.typicode.com/users/1')
-    .then((data) => {
-        return data.json()})
-    .then(jsonData => console.log(jsonData))
-
-async function users() {
-    try {
-        const data = await fetch('https://jsonplaceholder.typicode.com/users/');
-        const jsonData = await data.json();
-        jsonData.forEach(user => {
-            console.log(user.name);
-        })
-    }
-    catch (err) {
-        console.log(err);
-    }
-}
-
-users().then()
-
-// Create a function that receives a parameter of an id and
-// fetches from https://jsonplaceholder.typicode.com/posts
-// and logs all posts by that userId to the console
-
-async function posts(id) {
-    const posts = await fetch('https://jsonplaceholder.typicode.com/posts').then(data => data.json())
-    const filteredPosts = posts
-        .filter(post => {
-            return post.userId === id
-        })
-        .forEach(post => {
-            console.log(post);
-        })
-
-}
-posts(1).then()
+async function processArray(array) {
+    const evenNumbers = [];
+  
+    // Wrap the setTimeout logic in a Promise
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] % 2 === 0) evenNumbers.push(array[i]);
+        }
+        resolve(); // Resolve the Promise when processing is done
+      }, 1000);
+    });
+  
+    return evenNumbers;
+  }
+  
+  // Example usage
+  const numbers = [1, 2, 3, 4, 5, 6];
+  processArray(numbers).then((result) => console.log(result)); // Output after 1 second: [2, 4, 6]
+  
