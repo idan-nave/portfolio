@@ -477,6 +477,35 @@ function is_array(input) {
     console.log(newArray); // Output: [10, 20, 40, 50]
     
 
+// 10. reate a function that takes two parameters: an array of numbers and an integer representing the number of steps to traverse .
+    // Example usage:    const array = [1, 2, 3, 4, 5];    const steps = 2;    Output: [4, 5, 1, 2, 3]
+    const array = [1, 2, 3, 4, 5];
+    function circularTraversal(arr, steps) {
+        if (!Array.isArray(arr) || typeof steps !== 'number') {
+            throw new Error('Invalid input: first argument must be an array and second must be a number');
+        }
+    
+        const length = arr.length;
+        if (length === 0) return [];
+    
+        // Normalize the steps to avoid redundant cycles
+        let normalizedSteps = steps % length;
+    
+        // Convert negative steps for counter-clockwise traversal
+        if (normalizedSteps < 0) {
+            normalizedSteps += length;
+        }
+    
+        // Perform circular traversal
+        const result = arr.slice(-normalizedSteps).concat(arr.slice(0, -normalizedSteps));
+        return result;
+    }
+    
+    // Example usage:
+    const array = [1, 2, 3, 4, 5];    
+    const stepsCounterClockwise = -2;
+    console.log(circularTraversal(array, stepsCounterClockwise)); // Output: [3, 4, 5, 1, 2]
+    
 // ################################# ARRAY CHEATSHEET ######################################
 
 // 1. concat()

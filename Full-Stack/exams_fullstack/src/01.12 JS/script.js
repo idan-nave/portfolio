@@ -1,43 +1,39 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const taskInput = document.getElementById('task-input');
-    
+// Create an HTML page with an input field, a button, and a result display area.
+//When the button is clicked, a JavaScript function should receive a string as a parameter from the input field. The function should then find the longest word in the string and display it in the result area.
 
-    // Add Task
-    addTaskBtn.addEventListener('click', () => {
-        const taskText = taskInput.value.trim();
-        if (taskText) {
-            createTask(taskText);
-            taskInput.value = '';
+// Example: Given input: 'The quick brown fox jumps over the lazy dog'
+// If the button is clicked, the result should display 'jumps' as it's the longest word in the input string.
+document.addEventListener('DOMContentLoaded', () => {
+
+    const input = document.getElementById('input');
+    const find_btn = document.getElementById('find_btn');
+    const result = document.getElementById('result');
+
+    // Button event
+    find_btn.addEventListener('click', () => {
+        if (input) {
+            result.value = findLargestWord(input.value);
+        }
+        else {
+            result.value = 'missing input';
         }
     });
 
-    // Clear Completed Tasks
-    clearCompletedBtn.addEventListener('click', () => {
-        const completedTasks = document.querySelectorAll('.completed');
-        completedTasks.forEach(task => {
-            task.classList.add('removing');
-            setTimeout(() => task.remove(), 500); // Pin throw animation before removal
-        });
-    });
+    function findLargestWord(inputText) {
+        let words = inputText.split(' ');
+        let max = 0;
+        let largest = '';
 
-    // Create Task Element
-    function createTask(taskText) {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <img src="pin.png" class="pin" alt="Pin">
-            <span>${taskText}</span>
-            <div>
-                <input type="checkbox" class="complete-checkbox">
-                <button class="delete-btn">Delete</button>
-            </div>
-        `;
-
-
-        // Add complete functionality
-        li.querySelector('.complete-checkbox').addEventListener('change', (e) => {
-            li.classList.toggle('completed', e.target.checked);
+        words.forEach(word => {
+            let wordLength = word.length;
+            if (wordLength > max) {
+                largest = word;
+                max = wordLength;
+            }
         });
 
-        taskList.appendChild(li);
+        return largest; 
     }
+
+
 });

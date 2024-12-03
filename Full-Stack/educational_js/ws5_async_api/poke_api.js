@@ -1,4 +1,4 @@
-// Create a javascript file that connects to a html file
+    // Create a javascript file that connects to a html file
 // In the html create an an input and an empty img element
 // Based on the user input into the input tag display an img of a pokemon
 // (To fetch the pokemon imgs use https://pokeapi.co/)
