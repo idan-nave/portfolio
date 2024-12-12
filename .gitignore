@@ -1,10 +1,10 @@
 # Ignore specific sub-directories - those will exist as standalone Repos.
-/Full-Stack/proj_cleancube
-/Full-Stack/proj_spacefolio
-/Full-Stack/proj_e-commerce_motogear_hub
-/Networking/hub_and_spoke_vpns_enterprise
-/Embedded/proj_scheduler_app
-/Embedded/proj_smart_home_iot_controller
+Full-Stack/proj_cleancube
+Full-Stack/proj_spacefolio
+Full-Stack/proj_e-commerce_motogear_hub
+Networking/hub_and_spoke_vpns_enterprise
+Embedded/proj_scheduler_app
+Embedded/proj_smart_home_iot_controller
 
 # Untrack any files that have already been committed & pushed:
 #           git rm --cached -r /Portfolio/Full-Stack/proj_spacefolio  //  Removes the specified directory or files from Git tracking,
