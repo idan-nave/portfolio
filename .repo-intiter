@@ -1,0 +1,9 @@
+echo "# MY_PROJ" >> README.md
+git init
+git add .
+git commit -m "init of repo"
+git branch -M main
+git remote add origin git@github.com:idan-nave/MY_PROJ.git
+git push -u origin main
+
+#git remote remove origin
