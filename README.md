@@ -14,7 +14,7 @@ Hi there! 👋 I'm [Idan], an aspiring software engineer and embedded systems de
 
 # Website
 
-With  [**Spacefolio**](idan-nave.netlify.app), you don't just learn about my skills; you interact with them. Buttons in the cockpit trigger real projects I've developed, making this portfolio an immersive experience. BE ADSISED - Time travel feature is currently experimental!  
+With  [**Spacefolio**](https://idan-nave.netlify.app/), you don't just learn about my skills; you interact with them. Buttons in the cockpit trigger real projects I've developed, making this portfolio an immersive experience. BE ADSISED - Time travel feature is currently experimental!  
 - [Repo Link](https://github.com/idan-nave/spacefolio)
 
 ---
@@ -22,7 +22,7 @@ With  [**Spacefolio**](idan-nave.netlify.app), you don't just learn about my ski
 ## Projects
 
 ### Project #1. [CleanCube - Rubik's Cube Learning Platform](https://github.com/idan-nave/cleancube)
-### [cleancube.netlify.app](cleancube.netlify.app)
+### [cleancube.netlify.app]((https://cleancube.netlify.app/)
 **Description**: CleanCube is an interactive learning platform designed to teach users how to solve a Rubik's Cube, using AI & Image-recognition It offers a user-friendly interface with step-by-step tutorials, progress tracking, and visual aids, catering to both beginners and competitive solvers looking to refine their skills.
 - [Project PDF](https://drive.google.com/file/d/1_IgumR1o34aWOG-1085jDUhY1AogJl2A/view?usp=sharing)
 

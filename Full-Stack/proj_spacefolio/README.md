@@ -1,5 +1,7 @@
-# THIS PROJECT IS PINNED AS AS A REPO ON MY PROFILE PAGE !
+# THIS PROJECT IS PINNED AS A REPO ON MY PROFILE PAGE !
 https://github.com/idan-nave/spacefolio
+
+### [idan-nave.netlify.app]((https://idan-nave.netlify.app/)
 
 ---
 

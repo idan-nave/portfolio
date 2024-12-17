@@ -1,4 +1,4 @@
-# THIS PROJECT IS PINNED AS AS A REPO ON MY PROFILE PAGE !
+# THIS PROJECT IS PINNED AS A REPO ON MY PROFILE PAGE !
 https://github.com/idan-nave/hub-spoke-campus
 
 ---
