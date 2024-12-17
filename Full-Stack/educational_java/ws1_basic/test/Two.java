@@ -10,7 +10,26 @@
 package test;
 
 public class Two {
-  public static void main(String[] args) {
-    System.out.println("Two");
+  public void print(int num) {
+      System.out.println();
+      System.out.print(num);
+      System.out.print(addNum(num));
+      System.out.println("___________");
+  }
+
+  private int addNum(int num) {
+      if (num > 10) {
+          return (num + 15);
+      } else {
+          return (num + 10);
+      }
+  }
+
+  public int subNum(int num) {
+      if (num > 10) {
+          return (num - 15);
+      } else {
+          return (num - 10);
+      }
   }
 }
