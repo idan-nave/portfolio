@@ -1,0 +1,86 @@
+# Java build files
+*.class                 # Compiled class files
+*.jar                   # JAR files (build output)
+*.war                   # Web application archives
+*.ear                   # Enterprise application archives
+
+# Maven build directories
+/target/                # Maven build output directory
+
+# Gradle build directories
+.gradle/                # Gradle's build files
+/build/                 # Gradle build output directory
+
+# NetBeans
+.nb-gradle/             # NetBeans project directory for Gradle
+nbproject/              # NetBeans project files
+
+# Eclipse IDE files
+.classpath              # Eclipse classpath file
+.project                # Eclipse project file
+.settings/              # Eclipse settings directory
+
+# IntelliJ IDEA
+.idea/                  # IntelliJ IDEA project files
+*.iml                   # IntelliJ IDEA module files
+out/                    # IntelliJ IDEA output directory
+
+# VSCode
+.vscode/                # VSCode workspace configuration
+
+# Windows Installer files
+Thumbs.db               # Windows thumbnail cache
+desktop.ini             # Windows system files
+
+# macOS specific files
+.DS_Store               # macOS file system
+
+# JetBrains Rider
+.idea/                  # JetBrains Rider project files
+
+# Log files
+*.log                   # Log files
+*.out                   # Output files from the terminal or other log sources
+
+# OS-specific files
+ehthumbs.db             # Windows thumbnail cache
+Icon?                   # macOS icon file
+
+# Gradle specific files
+gradle-wrapper.jar      # Gradle wrapper JAR file
+gradle-wrapper.properties # Gradle wrapper properties
+
+# JUnit & TestNG output
+test-output/            # TestNG output folder
+*.test                 # Test output files
+
+# Miscellaneous files
+*.swp                   # Swap files from text editors like vim
+*.swo                   # Swap files from text editors like vim
+
+# Backup files
+*~                       # Backup files from text editors (e.g., vim, emacs)
+*.bak                    # Backup files
+*.tmp                    # Temporary files
+
+# .env files (used for environment variables, secrets)
+.env                    # Avoid committing sensitive information
+
+# Node.js and other package manager files (if any)
+node_modules/           # Node.js dependencies folder
+npm-debug.log           # npm debug log file
+yarn-debug.log          # yarn debug log file
+
+# H2 Database files (if any)
+*.h2.db                 # H2 database file
+
+# Other tools
+.vscode/                # Visual Studio Code config directory
+.idea/                  # JetBrains IDE (IntelliJ, Webstorm, etc.)
+*.sublime-workspace     # Sublime Text workspace files
+*.sublime-project       # Sublime Text project files
+
+# Ruby (if you are using Ruby in some way)
+*.gem                   # Ruby gem files
+*.rbc                   # Ruby compiled file
+

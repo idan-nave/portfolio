@@ -1,0 +1,15 @@
+# Ignore bin directory (compiled Java files)
+/bin/
+
+# Ignore IDE config files (e.g., IntelliJ, Eclipse)
+.idea/
+*.iml
+*.project
+*.classpath
+/.vscode/
+
+# Ignore log files
+*.log
+
+# Ignore compiled class files
+*.class
