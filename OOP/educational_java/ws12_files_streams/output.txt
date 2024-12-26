@@ -1,0 +1,2 @@
+Line 1: Java file handling is efficient.
+Line 2: FileWriter writes character data.

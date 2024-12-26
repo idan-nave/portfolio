@@ -1,7 +1,7 @@
 cd ExceptionHandlingProject
-javac -d . exception/*.java
-java exception.ExceptionCauses
-java exception.ArithmeticExceptionExample
-java exception.CustomExceptionExample
-java exception.ExceptionDetails
-java exception.MultipleCatchExample
+javac -d bin exception/*.java
+java -cp bin exception.ExceptionCauses
+java -cp bin exception.ArithmeticExceptionExample
+java -cp bin exception.CustomExceptionExample
+java -cp bin exception.ExceptionDetails
+java -cp bin exception.MultipleCatchExample
