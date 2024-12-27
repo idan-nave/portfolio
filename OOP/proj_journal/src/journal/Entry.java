@@ -3,7 +3,7 @@ package journal;
 import java.sql.Date;
 import java.util.UUID;
 
-public class Entry {
+public class Entry extends Journal{
 
     private static final int MAX_CONTENT_CHARS = 8000;
 

@@ -11,13 +11,19 @@ public class InvalidActionException extends Exception {
 
     // ######Non-Premium actions ######
 
-    public static void validateJournalCreation(User user) throws InvalidActionException {
-        if (!user.isPremium) {
+    public static void validateJournalCreationApproval(User user) throws InvalidActionException {
+        if (!user.isPremium && user.getJournalCount() >= User.MAX_JOURNALS) {
             throw new InvalidActionException(
-                    "User" + user.getUserName() + "is not allowed to have more than one journal");
+                    "User" + user.getUserName() + "is not allowed to have more than " + User.MAX_JOURNALS + " journals");
         }
     }
 
+    public static void validateEntryCreationApproval(User user) throws InvalidActionException {
+        if (!user.isPremium && user.journals.get(0).getEntryCount() >= User.MAX_ENTRIES) {
+            throw new InvalidActionException(
+                    "User" + user.getUserName() + "is not allowed to have more than " + User.MAX_ENTRIES + " entries");
+        }
+    }
     // ###### Null Operations ######
 
     public static void validateJournalDeletion(User user) throws InvalidActionException {
