@@ -68,11 +68,11 @@ public class InvalidInputException extends Exception {
     /**
      * Validates that a jounnal exists in the system.
      * 
-     * @param user The user to validate.
-     * @throws InvalidInputException if the user does not exist.
+     * @param journal The journal to validate.
+     * @throws InvalidInputException if the journal does not exist.
      */
     public static void validateJournalExists(Journal journal) throws InvalidInputException {
-        Path path = Paths.get("/users/" + journal.owner.getUserName() + "/" + journal.getTitle());
+        Path path = Paths.get(journal.owner.getPath() + "/" + journal.getTitle());
 
         if (!Files.exists(path)) {
             throw new InvalidInputException(
@@ -88,13 +88,16 @@ public class InvalidInputException extends Exception {
      */
     public static void validateSubscription(User user) throws InvalidInputException {
         if (!user.isSubscribed()) {
-            if (user.getJournalsCount() >= User.MAX_JOURNALS) {
+
+            if (user.getJournalsCount() > User.MAX_JOURNALS) {
+                Journal journalToRemove = user.getJournals().get(user.getJournalsCount() - 1);
+                user.removeJournal(journalToRemove);
                 throw new InvalidInputException(
                         "User: " + user.getUserName() + " is not allowed to have more than "
                                 + User.MAX_JOURNALS + " journals");
-            }
-
-            if (user.getTotalEntriesCount() >= User.MAX_ENTRIES) {
+            } else if (user.getTotalEntriesCount() > User.MAX_ENTRIES) {
+                Entry entryToRemove = user.getJournals().get(user.getJournalsCount() - 1).getEntries().get(user.getTotalEntriesCount() - 1);
+                user.getJournals().get(user.getJournalsCount() - 1).removeEntry(entryToRemove);
                 throw new InvalidInputException(
                         "User: " + user.getUserName() + " is not allowed to have more than "
                                 + User.MAX_ENTRIES + " entries");

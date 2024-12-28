@@ -1,6 +1,7 @@
 package journal;
 
 import java.util.List;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Entry extends MetaHandler {
@@ -15,8 +16,9 @@ public class Entry extends MetaHandler {
 
         // Input Validation
         InvalidInputException.validateString(title);
-        InvalidInputException.validateJournalExists(container);
+        // InvalidInputException.validateJournalExists(container);
 
+        this.container = container;
         this.items = new ArrayList<>();
         // entry remains empty
     }
@@ -84,7 +86,8 @@ public class Entry extends MetaHandler {
     public String toString() {
 
         // Get last changed time
-        String lastChanged = getLastChanged().toString();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String lastChanged = getLastChanged().format(formatter);
         // Get entry count
         int itemsCount = getItemsCount();
 

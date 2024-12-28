@@ -1,6 +1,7 @@
 package journal;
 
 import java.util.List;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Journal extends MetaHandler {
@@ -17,6 +18,7 @@ public class Journal extends MetaHandler {
         InvalidInputException.validateString(title);
         InvalidInputException.validateUserExists(owner);
 
+        this.owner = owner;
         this.entries = new ArrayList<>();
         // If subscribed, the user can create multiple entries, otherwise only
         // MAX_ENTRIES
@@ -42,14 +44,14 @@ public class Journal extends MetaHandler {
 
         // Input Validation
         InvalidInputException.validateExists(entry);
-        InvalidInputException.validateSubscription(owner);
+        InvalidInputException.validateSubscription(this.owner);
 
         entries.add(entry);
         entry.container = this;
     }
 
     protected void renameEntry(Entry entry, String newTitle) throws InvalidInputException {
-        
+
         // Input Validation
         InvalidInputException.validateExists(entry);
         InvalidInputException.validateString(newTitle);
@@ -81,19 +83,19 @@ public class Journal extends MetaHandler {
     public String toString() {
         StringBuilder entryTitles = new StringBuilder();
         for (Entry entry : entries) {
-            entryTitles.append(entry.getTitle()).append(" ");
+            entryTitles.append(entry.getTitle()).append("; ");
         }
-        
 
         // Get last changed time
-        String lastChanged = getLastChanged().toString(); 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String lastChanged = getLastChanged().format(formatter);
         // Get entry count
         int entryCount = getEntriesCount();
-        
-        return "Journal [uid=" + getUID() 
-                + ", title=" + getTitle() 
-                + ", lastChanged=" + lastChanged 
-                + ", Has " + entryCount + " entries: " 
+
+        return "Journal [uid=" + getUID()
+                + ", title=" + getTitle()
+                + ", lastChanged=" + lastChanged
+                + ", Has " + entryCount + " entries: "
                 + "[" + entryTitles + "]]";
     }
 }

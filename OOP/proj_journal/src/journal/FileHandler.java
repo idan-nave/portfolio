@@ -142,4 +142,20 @@ public class FileHandler {
             System.out.println("Error renaming file: " + e.getMessage());
         }
     }
+
+    public static String getParentPath(String path) {
+        // Create a Path object from the provided path string
+        Path currentPath = Paths.get(path);
+
+        // Get the parent path by calling getParent()
+        Path parentPath = currentPath.getParent();
+
+        // If parentPath is null, it means we are at the root (e.g., "/")
+        if (parentPath == null) {
+            return null; // Or handle as necessary
+        }
+
+        // Return the parent path as a string
+        return parentPath.toString();
+    }
 }

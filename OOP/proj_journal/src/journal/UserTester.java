@@ -44,8 +44,12 @@ public class UserTester {
             // 8. Try adding a journal when not subscribed
             System.out.println("\nTrying to add a journal when unsubscribed...");
             User nonSubscribedUser = new User("non_subscribed_user");
-            nonSubscribedUser.addJournal(new Journal("Non-subscribed Journal", nonSubscribedUser));
-            System.out.println(nonSubscribedUser); // Display user info with journal
+            try {
+                nonSubscribedUser.addJournal(new Journal("Non-subscribed Journal", nonSubscribedUser));
+            } catch (InvalidInputException e) {
+                System.out.println("\nSuccessfully caught unsubscribed restriction: "+ e.getMessage());
+                System.out.println(nonSubscribedUser); // Display user info with journal
+            }
 
             // 9. View a journal
             System.out.println("\nViewing a journal...");
@@ -55,9 +59,9 @@ public class UserTester {
             // exception)
             System.out.println("\nTrying to add a third journal to a non-subscribed user...");
             try {
-                nonSubscribedUser.addJournal(new Journal("Another Journal", nonSubscribedUser));
+                nonSubscribedUser.addJournal(new Journal("Non-subscribed Journal 2", nonSubscribedUser));
             } catch (InvalidInputException e) {
-                System.out.println("Error: " + e.getMessage());
+                System.out.println("\nSuccessfully caught unsubscribed restriction: "+ e.getMessage());
             }
 
         } catch (InvalidInputException e) {

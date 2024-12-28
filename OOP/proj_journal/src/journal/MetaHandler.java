@@ -68,20 +68,12 @@ public abstract class MetaHandler {
         InvalidInputException.validateString(title);
 
         this.title = title;
+        this.path = FileHandler.getParentPath(this.getPath()) + "/" + title;
         setLastChanged(); // Update lastChanged on title change
     }
 
     protected String getPath() {
         return path;
-    }
-
-    protected void setPath(String path) throws InvalidInputException {
-
-        // Validate inputs
-        InvalidInputException.validateString(path);
-
-        this.path = path;
-        setLastChanged(); // Update lastChanged on path change
     }
 
     protected LocalDateTime getLastChanged() {
@@ -117,8 +109,7 @@ public abstract class MetaHandler {
         else
             FileHandler.renameDirectory(this.path, newTitle);
 
-        this.title = newTitle;
-        setLastChanged(); // Update lastChanged
+        this.setTitle(newTitle);
     }
 
 }

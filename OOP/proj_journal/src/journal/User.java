@@ -1,6 +1,7 @@
 package journal;
 
 import java.util.List;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class User extends MetaHandler {
@@ -28,7 +29,8 @@ public class User extends MetaHandler {
         this.id = idCounter++;
         this.isSubscribed = false;
         this.journals = new ArrayList<>();
-        // If subscribed, the user can create multiple journals, otherwise only MAX_JOURNALS
+        // If subscribed, the user can create multiple journals, otherwise only
+        // MAX_JOURNALS
         addJournal(new Journal("Default Journal", this));
     }
 
@@ -65,7 +67,6 @@ public class User extends MetaHandler {
     protected void setSubscribed(boolean isSubscribed) {
         this.isSubscribed = isSubscribed;
     }
-
 
     // User Actuators
     public void subscribe() {
@@ -115,23 +116,23 @@ public class User extends MetaHandler {
     public String toString() {
         StringBuilder journalTitles = new StringBuilder();
         for (Journal journal : journals) {
-            journalTitles.append(journal.getTitle()).append(" ");
+            journalTitles.append(journal.getTitle()).append("; ");
         }
-        
-        
+
         // Get subscription status
         String subscriptionStatus = isSubscribed ? "subscribed" : "unsubscribed";
-        
+
         // Get last changed time
-        String lastChanged = getLastChanged().toString(); 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String lastChanged = getLastChanged().format(formatter);
         // Get journal count
         int journalCount = getJournalsCount();
-        
-        return "User [id=" + id 
-                + ", username=" + getTitle() 
-                + ", subscription=" + subscriptionStatus 
-                + ", lastChanged=" + lastChanged 
-                + ", Has " + journalCount + " journals: " 
+
+        return "User [id=" + id
+                + ", username=" + getTitle()
+                + ", subscription=" + subscriptionStatus
+                + ", lastChanged=" + lastChanged
+                + ", Has " + journalCount + " journals: "
                 + "[" + journalTitles + "]]";
     }
 }
