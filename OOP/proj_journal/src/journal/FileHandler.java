@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 
-public class FilesDirsManager {
+public class FileHandler {
 
     // Create a file
     public static void createFile(String filePath) {
@@ -107,48 +107,39 @@ public class FilesDirsManager {
         }
     }
 
-    // Rename a directory
-    public static void renameDirectory(String oldPathStr, String newPathStr) {
-        Path oldPath = Paths.get(oldPathStr);
-        Path newPath = Paths.get(newPathStr);
+    // Rename a directory using only the current path and a new title
+    public static void renameDirectory(String pathStr, String newTitle) {
+        Path oldPath = Paths.get(pathStr);
+        Path parentDir = oldPath.getParent(); // Get the parent directory of the original path
+        Path newPath = parentDir.resolve(newTitle); // Create the new path with the new title
+
         try {
             if (Files.exists(oldPath)) {
                 Files.move(oldPath, newPath, StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Renamed from " + oldPathStr + " to " + newPathStr);
+                System.out.println("Directory renamed from " + oldPath + " to " + newPath);
             } else {
-                System.out.println("The source directory does not exist: " + oldPathStr);
+                System.out.println("The source directory does not exist: " + oldPath);
             }
         } catch (IOException e) {
-            System.out.println("Error renaming: " + e.getMessage());
+            System.out.println("Error renaming directory: " + e.getMessage());
         }
     }
 
-    // Rename a file
-    public static void renameFile(String oldPathStr, String newPathStr) {
-        Path oldPath = Paths.get(oldPathStr);
-        Path newPath = Paths.get(newPathStr);
+    // Rename a file using only the current path and a new title
+    public static void renameFile(String pathStr, String newTitle) {
+        Path oldPath = Paths.get(pathStr);
+        Path parentDir = oldPath.getParent(); // Get the parent directory of the original path
+        Path newPath = parentDir.resolve(newTitle); // Create the new path with the new title
+
         try {
             if (Files.exists(oldPath)) {
                 Files.move(oldPath, newPath, StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Renamed from " + oldPathStr + " to " + newPathStr);
+                System.out.println("File renamed from " + oldPath + " to " + newPath);
             } else {
-                System.out.println("The source file does not exist: " + oldPathStr);
+                System.out.println("The source file does not exist: " + oldPath);
             }
         } catch (IOException e) {
-            System.out.println("Error renaming: " + e.getMessage());
+            System.out.println("Error renaming file: " + e.getMessage());
         }
-    }
-
-    // Main method to test the FilesDirsManager class
-    public static void main(String[] args) {
-        createDirectory("exampleFullDir");
-        createDirectory("exampleEmptyDir");
-        createFile("./exampleFullDir/example1.txt");
-        createFile("./exampleFullDir/example2.txt");
-        renameFile("./exampleFullDir/example2.txt", "./exampleFullDir/example2Renamed.txt");
-       
-        deleteFile("./exampleFullDir/example2Renamed.txt");
-        deleteDirectoryRecursively("exampleFullDir");
-        deleteEmptyDirectory("exampleEmptyDir");
     }
 }

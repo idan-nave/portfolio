@@ -1,130 +1,137 @@
 package journal;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
 
-public class User {
+public class User extends MetaHandler {
 
-    // Non-Premium restrictions
+    public static final String USERS_PATH = "users/";
+
+    // Non-subscribed user restrictions
     public static final int MAX_JOURNALS = 1;
     public static final int MAX_ENTRIES = 3;
 
-    private static long idCounter = 100000000; // Auto-incremented ID starting at 100000000
-    private long id;
-    protected boolean isPremium;
-    private String userName;
-    protected String basePath; // path for user files
-    protected List<Journal> journals;
+    // User fields
+    private static int idCounter = 1; // Auto-incremented ID for users
+    private int id;
+    private boolean isSubscribed;
+    private List<Journal> journals; // list of journals owned by user
 
-    public User()
-    {
-        //void consructor for enabling inheritance
+    // Constructor
+    public User(String username) throws InvalidInputException {
+        super(username, "./users"); // Pass the parent path to the MetaHandler constructor
+
+        // Input Validation
+        InvalidInputException.validateString(username);
+        InvalidInputException.validateUsernameExists(username);
+
+        this.id = idCounter++;
+        this.isSubscribed = false;
+        this.journals = new ArrayList<>();
+        // If subscribed, the user can create multiple journals, otherwise only MAX_JOURNALS
+        addJournal(new Journal("Default Journal", this));
     }
 
-    // Constructor to set specific fields (if needed)
-    public User(String userName) throws InvalidActionException, InvalidInputException {
-        // Validate user details
-        InvalidInputException.checkName(userName);
-        this.id = idCounter++; // Auto-increment ID
-        this.isPremium = false;
-        this.userName = userName;
-        this.basePath = "./journals/" + userName + "/";
-        FilesDirsManager.createDirectory(basePath); // adds a user folder
-        createJournal("Default Journal"); // adds a single default journal
-    }
-
-    // Getter and Setter methods
-    public long getId() {
+    // Getters
+    protected int getId() {
         return id;
     }
 
-    public String getUserName() {
-        return userName;
+    protected String getUserName() {
+        return super.getTitle();
     }
 
-    public int getJournalCount() {
-        return this.journals.size();
+    protected boolean isSubscribed() {
+        return isSubscribed;
     }
 
-    public void setUserName(String userName) throws InvalidInputException {
-        InvalidInputException.checkName(userName);
-        this.userName = userName;
+    protected List<Journal> getJournals() {
+        return journals;
     }
 
-    public void payPremium() {
-        this.isPremium = true;
+    protected int getJournalsCount() {
+        return journals.size();
     }
 
-    // Method to create a new journal - take premium status into account
-    protected void createJournal(String title) throws InvalidActionException, InvalidInputException {
-        InvalidInputException.checkName(title);
-        InvalidActionException.validateJournalCreationApproval(this);
-        this.journals = new ArrayList<Journal>(); //adds journal to user list
-        this.journals.add(new Journal(title)); //construct journal type
-        FilesDirsManager.createDirectory(basePath + title); // if not exists already
+    protected int getTotalEntriesCount() {
+        int entriesCount = 0;
+        for (Journal journal : journals) {
+            entriesCount += journal.getEntriesCount();
+        }
+        return entriesCount;
     }
 
-    // Method to delete a journal (including all contents)
-    protected void deleteJournal(String title) throws InvalidInputException {
-        InvalidInputException.checkName(title);
-        Iterator<Journal> found = findJournalByTitle(title);
-        if (found == null)
-            return;
-        found.remove();
-        FilesDirsManager.deleteDirectoryRecursively(basePath + title);
+    // Setters
+    protected void setSubscribed(boolean isSubscribed) {
+        this.isSubscribed = isSubscribed;
     }
 
-    // Method to rename a journal (if not existing already)
-    protected void renameJournal(String title, String newTitle) throws InvalidInputException {
-        InvalidInputException.checkName(title);
-        InvalidInputException.checkName(newTitle);
-        Iterator<Journal> found = findJournalByTitle(title);
-        if (found == null)
-            return;
-        Journal journal = found.next();
-        journal.setTitle(newTitle);
-        FilesDirsManager.renameDirectory(basePath + title, basePath + newTitle);
+
+    // User Actuators
+    public void subscribe() {
+        this.isSubscribed = true;
     }
 
-    // toString method to return a string representation of the user
+    protected void addJournal(Journal journal) throws InvalidInputException {
+
+        // Input Validation
+        InvalidInputException.validateExists(journal);
+        InvalidInputException.validateSubscription(this);
+
+        journals.add(journal);
+        journal.owner = this;
+    }
+
+    protected void renameJournal(Journal journal, String newTitle) throws InvalidInputException {
+
+        // Input Validation
+        InvalidInputException.validateExists(journal);
+        InvalidInputException.validateString(newTitle);
+
+        // if found- will rename first occurance
+        journal.rename(newTitle);
+    }
+
+    protected void removeJournal(Journal journal) throws InvalidInputException {
+
+        // Input Validation
+        InvalidInputException.validateExists(journal);
+
+        // if found- will remove first occurance
+        journals.remove(journal);
+        journal.delete();
+    }
+
+    protected void viewJournal(Journal journal) throws InvalidInputException {
+
+        // Input Validation
+        InvalidInputException.validateExists(journal);
+
+        System.out.println(journal.toString());
+    }
+
+    // Overriding the toString method to show useful user info
     @Override
     public String toString() {
-        String isPremium = (this.isPremium) ? "Premium" : "Regular";
-        return "ID: " + id + ", Name: " + userName + ", Status: " + isPremium + ", has" + getJournalCount() + " journals";
-    }
-
-    // Method to find a journal by title and return an Iterator
-    protected Iterator<Journal> findJournalByTitle(String title) throws InvalidInputException {
-        InvalidInputException.checkName(title);
-
-        // Iterate over journals list and find the one with the matching title
-        Iterator<Journal> iterator = journals.iterator();
-        while (iterator.hasNext()) {
-            Journal journal = iterator.next();
-            if (journal.getTitle().equals(title)) {
-                return iterator; // Return the iterator pointing to the matching journal
-            }
+        StringBuilder journalTitles = new StringBuilder();
+        for (Journal journal : journals) {
+            journalTitles.append(journal.getTitle()).append(" ");
         }
-        System.out.println("no results for findJournalByTitle(" + title + ")");
-        return null; // Return null if no journal with the title is found
-    }
-
-    // Main method to test the User class
-    public static void main(String[] args) {
-        try {
-
-            // Create User objects with and without a company
-            User notPremiumUser = new User("Alice");
-            User premiumUser = new User("Guy");
-            premiumUser.payPremium();
-
-            // Print the details of each user
-            System.out.println(notPremiumUser);
-            System.out.println(premiumUser);
-
-        } catch (InvalidInputException | InvalidActionException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+        
+        
+        // Get subscription status
+        String subscriptionStatus = isSubscribed ? "subscribed" : "unsubscribed";
+        
+        // Get last changed time
+        String lastChanged = getLastChanged().toString(); 
+        // Get journal count
+        int journalCount = getJournalsCount();
+        
+        return "User [id=" + id 
+                + ", username=" + getTitle() 
+                + ", subscription=" + subscriptionStatus 
+                + ", lastChanged=" + lastChanged 
+                + ", Has " + journalCount + " journals: " 
+                + "[" + journalTitles + "]]";
     }
 }

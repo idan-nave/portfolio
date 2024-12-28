@@ -1,104 +1,99 @@
 package journal;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
+import java.util.ArrayList;
 
-public class Journal extends User {
-    public static final String ENTRY_FILE_EXT = ".txt";
+public class Journal extends MetaHandler {
 
-    private String uid; // Unique identifier for each journal
-    private String title;
-    private String path; // path for journal entry files
+    // Journal fields
+    protected User owner;
     private List<Entry> entries;
 
-    public Journal(String title) throws InvalidInputException, InvalidActionException {
-        super();
-        InvalidInputException.checkName(title);
-        this.uid = UUID.randomUUID().toString(); // Generate a unique uid for the company
-        this.title = title;
-        this.path = super.basePath + title + "/";
-        FilesDirsManager.createDirectory(path); // adds a journal folder
-        createEntry("Default Entry"); // adds a single default entry
+    // Constructor - a journal must be coupled with a user
+    public Journal(String title, User owner) throws InvalidInputException {
+        super(title, owner.getPath()); // Pass the parent path to the MetaHandler constructor
+
+        // Input Validation
+        InvalidInputException.validateString(title);
+        InvalidInputException.validateUserExists(owner);
+
+        this.entries = new ArrayList<>();
+        // If subscribed, the user can create multiple entries, otherwise only
+        // MAX_ENTRIES
+        addEntry(new Entry("Default Entry", this));
     }
 
-    // Getter and Setter methods
-    public String getUID() {
-        return uid;
+    // Getters
+    protected User getOwner() {
+        return this.owner;
     }
 
-    public String getTitle() {
-        return title;
+    public List<Entry> getEntries() {
+        return entries;
     }
 
-    public int getEntryCount() {
-        return this.entries.size();
+    public int getEntriesCount() {
+        return entries.size();
     }
 
-    protected void setTitle(String title) throws InvalidInputException {
-        InvalidInputException.checkName(title);
-        this.title = title;
+    // Journal Actuators
+
+    protected void addEntry(Entry entry) throws InvalidInputException {
+
+        // Input Validation
+        InvalidInputException.validateExists(entry);
+        InvalidInputException.validateSubscription(owner);
+
+        entries.add(entry);
+        entry.container = this;
     }
 
-    // Method to create a new entry - take premium status into account
-    protected void createEntry(String title) throws InvalidActionException, InvalidInputException {
-        InvalidInputException.checkName(title);
-        InvalidActionException.validateEntryCreationApproval(this);
-        this.entries = new ArrayList<Entry>(); // adds entry to user list
-        this.entries.add(new Entry(title)); // construct entry type
-        FilesDirsManager.createFile(path + title + ENTRY_FILE_EXT); // if not exists already
+    protected void renameEntry(Entry entry, String newTitle) throws InvalidInputException {
+        
+        // Input Validation
+        InvalidInputException.validateExists(entry);
+        InvalidInputException.validateString(newTitle);
+
+        // if found- will rename first occurance
+        entry.rename(newTitle);
     }
 
-    // Method to delete an entry
-    protected void deleteEntry(String title) throws InvalidInputException {
-        InvalidInputException.checkName(title);
-        Iterator<Entry> found = findEntryByTitle(title);
-        if (found == null)
-            return;
-        found.remove();
-        FilesDirsManager.deleteFile(path + title + ENTRY_FILE_EXT);
+    protected void removeEntry(Entry entry) throws InvalidInputException {
+
+        // Input Validation
+        InvalidInputException.validateExists(entry);
+
+        // if found- will remove first occurance
+        entries.remove(entry);
+        entry.delete();
     }
 
-    // Method to rename an entry (if not existing already)
-    protected void renameEntry(String title, String newTitle) throws InvalidInputException {
-        InvalidInputException.checkName(title);
-        InvalidInputException.checkName(newTitle);
-        Iterator<Entry> found = findEntryByTitle(title);
-        if (found == null)
-            return;
-        Entry entry = found.next();
-        entry.setTitle(newTitle);
-        FilesDirsManager.renameFile(path + title + ENTRY_FILE_EXT, path + newTitle + ENTRY_FILE_EXT);
+    protected void viewEntry(Entry entry) throws InvalidInputException {
+
+        // Input Validation
+        InvalidInputException.validateExists(entry);
+
+        System.out.println(entry.toString());
     }
 
-    // toString method to return a string representation of the journal
+    // Overriding the toString method to show useful user info
     @Override
     public String toString() {
-        return "UUID: " + uid + ", Journal: " + title + ", has" + getEntryCount() + " entries";
-    }
-
-    // Method to find a entry by title and return an Iterator
-    protected Iterator<Entry> findEntryByTitle(String entryTitle) throws InvalidInputException {
-        InvalidInputException.checkName(entryTitle);
-
-        // Iterate over entry list and find the one with the matching title
-        Iterator<Entry> iterator = entries.iterator();
-        while (iterator.hasNext()) {
-            Entry entry = iterator.next();
-            if (entry.getTitle().equals(entryTitle)) {
-                return iterator; // Return the iterator pointing to the matching journal
-            }
+        StringBuilder entryTitles = new StringBuilder();
+        for (Entry entry : entries) {
+            entryTitles.append(entry.getTitle()).append(" ");
         }
-        System.out.println("no results for findEntryByTitle(" + entryTitle + ")");
-        return null; // Return null if no journal with the title is found
-    }
-    
-    // //Method to serialize & export a journal
-    // public void export(String title) throws InvalidActionException,
-    // InvalidInputException {
-    // InvalidActionException.validateJournalCreation(this);
-    // this.journals.add(new Journal(title));
-    // }
+        
 
+        // Get last changed time
+        String lastChanged = getLastChanged().toString(); 
+        // Get entry count
+        int entryCount = getEntriesCount();
+        
+        return "Journal [uid=" + getUID() 
+                + ", title=" + getTitle() 
+                + ", lastChanged=" + lastChanged 
+                + ", Has " + entryCount + " entries: " 
+                + "[" + entryTitles + "]]";
+    }
 }
